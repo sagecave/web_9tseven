@@ -1,3 +1,9 @@
+import ProductsContainer from "../../components/products/ProductContainer";
+
 export default function Home() {
-  return <p>Hej</p>;
+  return (
+    <div>
+      <ProductsContainer></ProductsContainer>
+    </div>
+  );
 }
