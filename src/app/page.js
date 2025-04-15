@@ -1,9 +1,11 @@
-import ProductsContainer from "../../components/products/ProductContainer";
+"use client";
+
+import ProductLayout from "../../layouts/ProductLayout";
 
 export default function Home() {
   return (
     <div>
-      <ProductsContainer></ProductsContainer>
+      <ProductLayout />
     </div>
   );
 }

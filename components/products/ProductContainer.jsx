@@ -1,5 +1,5 @@
 // components/ProductsContainer.jsx
-
+"use client";
 import { useQuery } from "@tanstack/react-query";
 import ProductCard from "./ProductCard";
 import { fetchProducts } from "../../api/products";
