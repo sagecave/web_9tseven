@@ -1,11 +1,10 @@
-"use client";
-
-import ProductLayout from "../../layouts/ProductLayout";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <div>
-      <ProductLayout />
+      <Link href="/productPage">Go to products</Link>
+      <Link href="/productPage/1">Go to testPage</Link>
     </div>
   );
 }
