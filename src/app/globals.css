@@ -6,17 +6,29 @@
 }
 
 @theme inline {
-  --color-Andreas: var(--color-green-400);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* This white is mainly used to background colors, and for some text colors(headers), where the background and white */
+  --color-main_white: #ffffff;
+  /* This color is used for bread text(<P>) and hover background colors */
+  --color-neutrak_white: #efefef;
+  /* This color is used when there is need for a different white. we dont use this color that much. */
+  --color-alternativ_white: #dcdcdc;
+  /* This color is used for headers and backgrounds */
+  --color-main_black: #292929;
+  /* This color is used for bread text(<P>) and hover background colors */
+  --color-neutrak_black: #3d3d3d;
+  /* This color is used when there is need for a different black. we dont use this color that much. */
+  --color-alternativ_black: #454545;
+  /* This font is for headers */
+  --font-headers: helvetica;
+  /* This font is for everthing else then headers */
+  --font-paragraph: helvetica;
+  /* This size is for h1 headers */
+  --text-HeaderSizeBig: 2rem;
+  /* This size is for headers below h1 */
+  --text-HeaderSizeSmall: 1.25rem;
+  /* This size is for paragraph, links and buttons */
+  --text-ParagraphSize: 1rem;
 }
-/* @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-} */
 
 @media (prefers-color-scheme: dark) {
   :root {
