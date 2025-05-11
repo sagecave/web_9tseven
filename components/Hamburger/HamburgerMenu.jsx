@@ -38,7 +38,7 @@ const HamburgerMenu = () => {
           </ul>
         )}
       </div>
-      <nav className="w-full">
+      <nav className="w-full ">
         <div className={"hidden  md:flex md:justify-evenly"}>
           <div>
             <ul className="flex gap-3 ">
