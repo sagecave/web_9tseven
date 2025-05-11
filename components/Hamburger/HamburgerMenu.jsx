@@ -41,7 +41,7 @@ const HamburgerMenu = () => {
       <nav className="w-full">
         <div className={"hidden  md:flex md:justify-evenly"}>
           <div>
-            <ul>
+            <ul className="flex gap-3 ">
               <li>
                 <Link href="#">Shop</Link>
               </li>
