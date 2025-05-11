@@ -11,7 +11,7 @@ const HamburgerMenu = () => {
   };
   return (
     <>
-      <div className="flex justify-between absolute w-full p-6 z-20 md:hidden">
+      <div className="flex justify-between absolute w-full p-6 z-20 md:hidden ">
         <button type="button" aria-expanded={isOpen} aria-label="Open Menu" onClick={handleMenuClick} className=" cursor-pointer">
           <div className="flex flex-col gap-1">
             <span className=" w-6 h-0.5 bg-amber-400"></span>
@@ -38,8 +38,8 @@ const HamburgerMenu = () => {
           </ul>
         )}
       </div>
-      <nav className="w-full">
-        <div className={"hidden  md:flex md:justify-evenly"}>
+      <nav className="w-full ">
+        <div className="hidden  md:flex md:justify-evenly">
           <div>
             <ul className="flex gap-3 ">
               <li>

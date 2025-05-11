@@ -5,6 +5,12 @@
   --foreground: #171717;
 }
 
+@theme {
+  --color-primary: #1e40af;
+  --color-accent: #fbbf24;
+  --color-mygreen: #00ff00;
+}
+
 /* @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
