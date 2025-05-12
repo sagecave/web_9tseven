@@ -49,7 +49,7 @@ const HamburgerMenu = () => {
           </ul>
         )}
       </div>
-      <nav className="w-full p-10 md:pt-6 md:pb-6 md:pl-10 md:pr-10 bg-main_black ">
+      <nav className="w-full p-10 md:pt-6 md:pb-6 md:pl-14 md:pr-14 bg-main_black ">
         <div className={"hidden    md:flex md:justify-between"}>
           <div>
             <ul className="flex gap-3 ">
