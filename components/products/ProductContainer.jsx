@@ -10,7 +10,7 @@ export default function ProductsContainer() {
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["productKey"],
+    queryKey: ["products"],
     queryFn: fetchProducts,
   });
 
