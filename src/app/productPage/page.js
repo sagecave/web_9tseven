@@ -3,7 +3,7 @@ import ProductsLayout from "../../../layouts/ProductLayout";
 export default function ProductPage() {
   return (
     <>
-      <h1 className=" text-amber-300">Product Page</h1>
+      <h1 className="text-HeaderSizeSmall text-main_black">ALL PRODUCTS</h1>
       <ProductsLayout />
     </>
   );

@@ -1,11 +1,11 @@
-"use client";
-import Image from "next/image";
-export default function ProductCards({ title, productImage }) {
+export default function ProductCards({ title, productImage, category, price }) {
   return (
-    <div className="border border-primary-300 w-full rounded overflow-hidden shadow-sm">
-      <Image src={productImage} alt={title} width={20} height={20} className="w-full h-40 object-cover" />
-      <div className="bg-primary-100 h-24 flex items-center justify-center px-2">
-        <p className="text-sm text-center">{title}</p>
+    <div className="  shadow-sm">
+      <img src={productImage} alt={title} className="w-full h-40 object-cover" />
+      <div className="pt-4 pr-3 pl-3 pb-4">
+        <p className="text-HeaderSizeSmall font-medium text-main_black">{title}</p>
+        <p className="text-ParagraphSize text-main_black">{category}</p>
+        <p className="text-ParagraphSize text-main_black">{price}</p>
       </div>
     </div>
   );

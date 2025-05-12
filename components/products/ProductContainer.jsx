@@ -16,7 +16,7 @@ export default function ProductsContainer() {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-40">
+      <div className="flex justify-center items-center">
         <div className="animate-spin rounded-full h-10 w-10 border-t-4 border-blue-500 border-solid"></div>
       </div>
     );
@@ -27,9 +27,9 @@ export default function ProductsContainer() {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
       {productData.map((item) => (
-        <ProductCard key={item.id} productImage={item.thumbnail} title={item.title} />
+        <ProductCard key={item.id} productImage={item.thumbnail} title={item.title} category={item.category} price={item.price} />
       ))}
     </div>
   );
