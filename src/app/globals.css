@@ -9,13 +9,13 @@
   /* This white is mainly used to background colors, and for some text colors(headers), where the background and white */
   --color-main_white: #ffffff;
   /* This color is used for bread text(<P>) and hover background colors */
-  --color-neutrak_white: #efefef;
+  --color-neutral_white: #efefef;
   /* This color is used when there is need for a different white. we dont use this color that much. */
   --color-alternativ_white: #dcdcdc;
   /* This color is used for headers and backgrounds */
   --color-main_black: #292929;
   /* This color is used for bread text(<P>) and hover background colors */
-  --color-neutrak_black: #3d3d3d;
+  --color-neutral_black: #3d3d3d;
   /* This color is used when there is need for a different black. we dont use this color that much. */
   --color-alternativ_black: #454545;
   /* This font is for headers */
@@ -32,7 +32,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #ffffff;
     --foreground: #ededed;
   }
 }
