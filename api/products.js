@@ -21,3 +21,8 @@ export const fetchProducts = async () => {
   console.log(json);
   return json;
 };
+
+// export async function singleProductFetch(request, segmentData) {
+//   const params = await segmentData.params
+//   const slug = params.slug
+// }
