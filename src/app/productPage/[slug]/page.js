@@ -34,10 +34,23 @@ export default function SingleProductPage() {
   console.log("PARAMS CHECK WORK?", params.slug);
   console.log("PRODUCTDATA CHECK WORK?", productsData);
   return (
-    <div>
-      <h1 className=" text-amber-300">{productsData[0]?.title}</h1>
-      <p className=" text-amber-300">{productsData[0]?.price}</p>
-    </div>
+    <section className=" md:grid md:grid-cols-2">
+      <div className="hidden md:block md:col-start-1 md:col-end-3">
+        <h1 className=" text-HeaderSizeBig text-main_black">{productsData[0]?.title}</h1>
+        <p className="text-ParagraphSize text-alternativ_black">bredcrum path</p>
+      </div>
+      <div>
+        <img src={productsData[0]?.first_image} alt="Product Image" width={500} height={500} className="object-cover" />
+      </div>
+      <div className=" text-ParagraphSize text-main_black">
+        <h2 className=" text-HeaderSizeSmall text-main_black">{productsData[0]?.title}</h2>
+        <p>{productsData[0]?.price}</p>
+        <p>{productsData[0]?.description}</p>
+        <p>SIZES</p>
+        <button className=" border-2 border-alternativ_black p-2 hover:bg-alternativ_black hover:text-main_white">+ ADD PRODUCT</button>
+        <p>Acordien</p>
+      </div>
+    </section>
   );
 }
 
