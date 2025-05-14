@@ -33,6 +33,10 @@ export default function SingleProductPage() {
 
   console.log("PARAMS CHECK WORK?", params.slug);
   console.log("PRODUCTDATA CHECK WORK?", productsData);
+  function addToBasket() {
+    console.log("Add to basket clicked");
+    console.log("Product data:", productsData);
+  }
   return (
     <section className=" md:grid md:grid-cols-2">
       <div className="hidden md:block md:col-start-1 md:col-end-3">
@@ -47,7 +51,9 @@ export default function SingleProductPage() {
         <p>{productsData[0]?.price}</p>
         <p>{productsData[0]?.description}</p>
         <p>SIZES</p>
-        <button className=" border-2 border-alternativ_black p-2 hover:bg-alternativ_black hover:text-main_white">+ ADD PRODUCT</button>
+        <button onClick={addToBasket} className=" border-2 border-alternativ_black p-2 hover:bg-alternativ_black hover:text-main_white">
+          + ADD PRODUCT
+        </button>
         <p>Acordien</p>
       </div>
     </section>
