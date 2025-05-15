@@ -1,6 +1,7 @@
 import { useStore } from "../../globalHooks/basketHooks";
 
-const BasketProductCard = () => {
+const BasketProductCard = ({ key, title }) => {
+  console.log("BasketProductCard", key, title);
   const numOfProducts = useStore((state) => state.products);
   const increaseProductNumber = useStore((state) => state.increaseProductNumber);
   const decreaseProductNumber = useStore((state) => state.decreaseProductNumber);
@@ -18,6 +19,7 @@ const BasketProductCard = () => {
 
   return (
     <div className="flex flex-row gap-3 items-center ">
+      <p>{title}</p>
       <button className="p-5 bg-amber-300" onClick={increaseProductNumber}>
         +
       </button>

@@ -1,11 +1,26 @@
 "use client";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-
+import { useBasketStore } from "../../../../globalHooks/basketProduct";
 export default function SingleProductPage() {
   const params = useParams();
   const slug = params.slug;
   const [productsData, setProductData] = useState([]);
+  const { BasketSatete, update } = useBasketStore();
+  const HandleUpdateProducts = () => {
+    console.log("BasketSatete", BasketSatete, "ProductsData", productsData);
+    const newProducts = [
+      {
+        id: productsData[0]?.id,
+        title: productsData[0]?.title,
+        price: productsData[0]?.price,
+        category: productsData[0]?.category,
+        first_image: productsData[0]?.first_image,
+        slug_name: productsData[0]?.slug_name,
+      },
+    ];
+    update(newProducts);
+  };
   useEffect(() => {
     async function getBandBySlug(slug) {
       const url = `https://rqumbnvfrmsowdaxrvkm.supabase.co/rest/v1/9TSEVEN?slug_name=eq.${slug}`;
@@ -31,10 +46,7 @@ export default function SingleProductPage() {
     getBandBySlug(slug);
   }, [slug]);
 
-  console.log("PARAMS CHECK WORK?", params.slug);
-  console.log("PRODUCTDATA CHECK WORK?", productsData);
   function addToBasket() {
-    console.log("Add to basket clicked");
     console.log("Product data:", productsData);
   }
   return (
@@ -54,6 +66,7 @@ export default function SingleProductPage() {
         <button onClick={addToBasket} className=" border-2 border-alternativ_black p-2 hover:bg-alternativ_black hover:text-main_white">
           + ADD PRODUCT
         </button>
+        <button onClick={HandleUpdateProducts}>Update data</button>
         <p>Acordien</p>
       </div>
     </section>
