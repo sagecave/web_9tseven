@@ -2,13 +2,17 @@
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useBasketStore } from "../../../../globalHooks/basketProduct";
+import { useStore } from "../../../../globalHooks/basketHooks";
 export default function SingleProductPage() {
   const params = useParams();
   const slug = params.slug;
   const [productsData, setProductData] = useState([]);
   const { BasketSatete, update } = useBasketStore();
+  const productQuantities = useStore((state) => state.productQuantities);
+  const quantity = productQuantities[productsData[0]?.id] || 0;
+  const increaseProductNumber = useStore((state) => state.increaseProductNumber);
+
   const HandleUpdateProducts = () => {
-    console.log("BasketSatete", BasketSatete, "ProductsData", productsData);
     const newProducts = [
       {
         id: productsData[0]?.id,
@@ -19,7 +23,15 @@ export default function SingleProductPage() {
         slug_name: productsData[0]?.slug_name,
       },
     ];
-    update(newProducts);
+    if (quantity >= 1) {
+      increaseProductNumber(productsData[0]?.id);
+    } else {
+      console.log("Product already in basket", quantity);
+      increaseProductNumber(productsData[0]?.id);
+      update(newProducts);
+    }
+    // increaseProductNumber(productsData[0]?.id);
+    // update(newProducts);
   };
   useEffect(() => {
     async function getBandBySlug(slug) {
@@ -39,16 +51,13 @@ export default function SingleProductPage() {
       }
 
       const data = await response.json();
-      console.log("DATA CHECK kommer den?", data);
+
       setProductData(data);
       return data;
     }
     getBandBySlug(slug);
   }, [slug]);
 
-  function addToBasket() {
-    console.log("Product data:", productsData);
-  }
   return (
     <section className=" md:grid md:grid-cols-2">
       <div className="hidden md:block md:col-start-1 md:col-end-3">
@@ -63,10 +72,10 @@ export default function SingleProductPage() {
         <p>{productsData[0]?.price}</p>
         <p>{productsData[0]?.description}</p>
         <p>SIZES</p>
-        <button onClick={addToBasket} className=" border-2 border-alternativ_black p-2 hover:bg-alternativ_black hover:text-main_white">
+
+        <button className=" border-2 border-alternativ_black p-2 hover:bg-alternativ_black hover:text-main_white" onClick={HandleUpdateProducts}>
           + ADD PRODUCT
         </button>
-        <button onClick={HandleUpdateProducts}>Update data</button>
         <p>Acordien</p>
       </div>
     </section>

@@ -17,7 +17,7 @@ const BasketModal = (isBasketOpen, setBasketOpen) => {
         <motion.div className="w-1/2 h-1/2 bg-main_black z-12 absolute mt-[-1px] " key="modal" initial={{ x: -300, opacity: 1 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -300, opacity: 0 }} transition={{ ease: "easeOut", duration: 0.5 }}>
           <div className=" p-6">
             {BasketSatete.map((product) => (
-              <BasketProductCard key={product.id} title={product.title} />
+              <BasketProductCard key={product.id} id={product.id} title={product.title} />
             ))}
 
             {/* <p className="text-amber-200">Product:{JSON.stringify(BasketSatete)}</p>
