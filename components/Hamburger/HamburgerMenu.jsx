@@ -6,12 +6,17 @@ import { motion, AnimatePresence } from "motion/react";
 import basketIcon from "../../public/assets/icons/basket.svg";
 import loop from "../../public/assets/icons/loop.svg";
 import personCircle from "../../public/assets/icons/personCircle.svg";
+import BasketModal from "../basket/BasketModal";
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isBasketOpen, setBasketOpen] = useState(false);
   const handleMenuClick = () => {
     setIsOpen(!isOpen);
-    console.log("Menu clicked", isOpen);
+  };
+  const handleBasketClick = () => {
+    setBasketOpen(!isBasketOpen);
+    console.log("Basket clicked", isBasketOpen);
   };
   return (
     <>
@@ -43,7 +48,9 @@ const HamburgerMenu = () => {
             </li>
             <li>
               <Link href="#">
-                <Image src={basketIcon} alt="Logo" width={20} height={20} />
+                <button type="button" aria-expanded={isBasketOpen} aria-label="Open Basket" onClick={handleBasketClick} className=" cursor-pointer">
+                  <Image src={basketIcon} alt="Logo" width={20} height={20} />
+                </button>
               </Link>
             </li>
           </ul>
@@ -83,7 +90,9 @@ const HamburgerMenu = () => {
               </li>
               <li>
                 <Link href="#">
-                  <Image src={basketIcon} alt="Logo" width={20} height={20} />
+                  <button type="button" aria-expanded={isBasketOpen} aria-label="Open Basket" onClick={handleBasketClick} className=" cursor-pointer">
+                    <Image src={basketIcon} alt="Logo" width={20} height={20} />
+                  </button>
                 </Link>
               </li>
             </ul>
@@ -97,7 +106,7 @@ const HamburgerMenu = () => {
               <div>
                 <ul className={`${isOpen ? "flex flex-col z-11 text-HeaderSizeBig text-alternativ_white " : "flex gap-3"}`}>
                   <li className="hover:text-main_white hover:underline">
-                    <Link href="#">Shop</Link>
+                    <Link href="/productPage">Shop</Link>
                   </li>
                   <li className="hover:text-main_white hover:underline">
                     <Link href="#">Community</Link>
@@ -111,6 +120,7 @@ const HamburgerMenu = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      {isBasketOpen && <BasketModal isBasketOpen={isBasketOpen} setBasketOpen={setBasketOpen} />}
     </>
   );
 };
