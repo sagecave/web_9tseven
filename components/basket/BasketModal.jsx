@@ -5,6 +5,8 @@ import basketIcon from "../../public/assets/icons/basket.svg";
 import loop from "../../public/assets/icons/loop.svg";
 import personCircle from "../../public/assets/icons/personCircle.svg";
 import BasketProductCard from "./BasketProductCard";
+import { create } from "zustand";
+
 const BasketModal = (isBasketOpen, setBasketOpen) => {
   return (
     <AnimatePresence>
