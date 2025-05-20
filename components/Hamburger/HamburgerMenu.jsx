@@ -9,6 +9,7 @@ import personCircle from "../../public/assets/icons/personCircle.svg";
 import BasketModal from "../basket/BasketModal";
 
 const HamburgerMenu = () => {
+  const [itemsCounter, setItemsCounter] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [isBasketOpen, setBasketOpen] = useState(false);
   const handleMenuClick = () => {
@@ -33,7 +34,7 @@ const HamburgerMenu = () => {
             <Image src="/assets/images/logoWhite.png" alt="Logo" width={50} height={50} />
           </div>
         )}
-        {isOpen && <div></div>}
+
         {!isOpen && (
           <ul className="flex gap-3 ">
             <li>
@@ -50,6 +51,7 @@ const HamburgerMenu = () => {
               <Link href="#">
                 <button type="button" aria-expanded={isBasketOpen} aria-label="Open Basket" onClick={handleBasketClick} className=" cursor-pointer">
                   <Image src={basketIcon} alt="Logo" width={20} height={20} />
+                  <p className=" absolute">{itemsCounter}</p>
                 </button>
               </Link>
             </li>
@@ -120,7 +122,7 @@ const HamburgerMenu = () => {
           </motion.div>
         )}
       </AnimatePresence>
-      {isBasketOpen && <BasketModal isBasketOpen={isBasketOpen} setBasketOpen={setBasketOpen} />}
+      {isBasketOpen && <BasketModal setItemsCounter={setItemsCounter} isBasketOpen={isBasketOpen} setBasketOpen={setBasketOpen} />}
     </>
   );
 };

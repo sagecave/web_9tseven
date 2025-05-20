@@ -2,7 +2,6 @@ import { create } from "zustand";
 
 export const useStore = create((set) => ({
   productQuantities: {},
-  productPrices: {},
 
   increaseProductNumber: (id) =>
     set((state) => ({
@@ -35,27 +34,6 @@ export const useStore = create((set) => ({
         [id]: 0,
       },
     })),
-
-  // quantatityAndPriceCalculater: (id, price) =>
-  //   set((state) => {
-  //     const quantity = state.productQuantities[id] || 0;
-  //     const totalPrice = quantity * price;
-  //     return {
-  //       productPrices: {
-  //         ...state.productPrices,
-  //         [id]: totalPrice,
-  //       },
-  //     };
-  //   }),
-  // quantatityAndPriceCalculater: () =>
-  //   set((state) => {
-  //     const totalPrice = Object.keys(state.productQuantities).reduce((sum, id) => {
-  //       const quantity = state.productQuantities[id] || 0;
-  //       const price = state.productPrices[id] || 0;
-  //       return sum + quantity * price;
-  //     }, 0);
-  //     return { totalPrice };
-  //   }),
 
   removeAllProducts: () => set({ productQuantities: {} }),
 }));

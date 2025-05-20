@@ -5,13 +5,14 @@ import { useBasketStore } from "../../globalHooks/basketProduct";
 import { useStore } from "../../globalHooks/basketHooks";
 import { useState, useEffect, use } from "react";
 
-const BasketModal = (isBasketOpen, setBasketOpen) => {
+const BasketModal = (isBasketOpen) => {
   const { BasketSatete } = useBasketStore();
 
   const productQuantities = useStore((state) => state.productQuantities);
 
   const totalPrices = BasketSatete.reduce((acc, product) => {
     const quantity = productQuantities[product.id] || 0;
+    console.log("productQuantities", productQuantities);
     return acc + product.price * quantity;
   }, 0);
   console.log("BasketSatete modal", BasketSatete);
