@@ -24,7 +24,7 @@ const BasketProductCard = ({ title, id, productImages, item, price, setProductPr
   }
 
   return (
-    <div className="flex flex-row justify-between items-center mt-4 ">
+    <div className="flex md:flex-row justify-between items-center mt-4 ">
       <div className="flex flex-row gap-6 items-center">
         <img className="w-[5rem]" src={productImages} alt={title} />
         <div>

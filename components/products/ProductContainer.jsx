@@ -27,7 +27,7 @@ export default function ProductsContainer() {
   }
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+    <div className="grid grid-cols-2 md:grid-cols-4  gap-4">
       {productData.map((item) => (
         <ProductCard key={item.id} productImage={item.first_image} title={item.title} category={item.category} price={item.price} slugName={item.slug_name} />
       ))}
