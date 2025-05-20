@@ -11,24 +11,29 @@ export default function SingleProductPage() {
   const productQuantities = useStore((state) => state.productQuantities);
   const quantity = productQuantities[productsData[0]?.id] || 0;
   const increaseProductNumber = useStore((state) => state.increaseProductNumber);
+  const quantatityAndPriceCalculater = useStore((state) => state.quantatityAndPriceCalculater);
 
   const HandleUpdateProducts = () => {
     const newProducts = [
       {
         id: productsData[0]?.id,
+        item: productsData[0]?.item,
         title: productsData[0]?.title,
         price: productsData[0]?.price,
         category: productsData[0]?.category,
         first_image: productsData[0]?.first_image,
         slug_name: productsData[0]?.slug_name,
+        quantity: quantity,
       },
     ];
     if (quantity >= 1) {
       increaseProductNumber(productsData[0]?.id);
+      // quantatityAndPriceCalculater(productsData[0]?.id, productsData[0]?.price);
     } else {
       console.log("Product already in basket", quantity);
       increaseProductNumber(productsData[0]?.id);
       update(newProducts);
+      // quantatityAndPriceCalculater(productsData[0]?.id, productsData[0]?.price);
     }
     // increaseProductNumber(productsData[0]?.id);
     // update(newProducts);

@@ -7,26 +7,39 @@ import personCircle from "../../public/assets/icons/personCircle.svg";
 import BasketProductCard from "./BasketProductCard";
 import { create } from "zustand";
 import { useBasketStore } from "../../globalHooks/basketProduct";
+import { useStore } from "../../globalHooks/basketHooks";
 
 const BasketModal = (isBasketOpen, setBasketOpen) => {
   const { BasketSatete } = useBasketStore();
+  const quantatityAndPriceCalculater = useStore((state) => state.quantatityAndPriceCalculater);
   console.log("BasketSatete modal", BasketSatete);
   return (
-    <AnimatePresence>
-      {isBasketOpen && (
-        <motion.div className="w-1/2 h-1/2 bg-main_black z-12 absolute mt-[-1px] " key="modal" initial={{ x: -300, opacity: 1 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -300, opacity: 0 }} transition={{ ease: "easeOut", duration: 0.5 }}>
-          <div className=" p-6">
-            {BasketSatete.map((product) => (
-              <BasketProductCard key={product.id} id={product.id} title={product.title} />
-            ))}
-
-            {/* <p className="text-amber-200">Product:{JSON.stringify(BasketSatete)}</p>
-            <p>{BasketSatete[0].title}</p>
-            <img src={BasketSatete[0]?.first_image} alt="Product Image" width={500} height={500} className="object-cover" /> */}
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <div>
+      <AnimatePresence>
+        {isBasketOpen && (
+          <motion.div
+            className="w-1/2 h-1/2 bg-main_black z-12 absolute mt-[-1px] left-1/2 flex flex-col gap-4 p-4 "
+            key="modal"
+            initial={{ x: 300, opacity: 1 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: 300, opacity: 0 }}
+            transition={{ ease: "easeOut", duration: 1.5 }}
+          >
+            <h2 className="text-main_white">Your items</h2>
+            <div className="snap-y snap-mandatory overflow-y-scroll h-full ">
+              <div>{BasketSatete.map((product) => (console.log("product", product), (<BasketProductCard key={product.id} id={product.id} title={product.title} productImages={product.first_image} item={product.item} price={product.price} />)))}</div>
+            </div>
+            <div>
+              <div className="flex flex-row justify-between items-center">
+                <p className="text-main_white">Total</p>
+                <p className="text-main_white">100,-</p>
+              </div>
+              <button className="p-4 bg-main_white hover:bg-alternativ_black hover:text-main_white text-main_black">checkout</button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 };
 

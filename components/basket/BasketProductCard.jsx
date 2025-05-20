@@ -1,7 +1,7 @@
 import { useStore } from "../../globalHooks/basketHooks";
 import { useBasketStore } from "../../globalHooks/basketProduct";
 // removeOneProduct
-const BasketProductCard = ({ title, id }) => {
+const BasketProductCard = ({ title, id, productImages, item, price }) => {
   const increaseProductNumber = useStore((state) => state.increaseProductNumber);
   const decreaseProductNumber = useStore((state) => state.decreaseProductNumber);
   const productQuantities = useStore((state) => state.productQuantities);
@@ -19,15 +19,24 @@ const BasketProductCard = ({ title, id }) => {
   }
 
   return (
-    <div className="flex flex-row gap-3 items-center ">
-      <p>{title}</p>
-      <button className="p-5 bg-amber-300" onClick={() => increaseProductNumber(id)}>
-        +
-      </button>
-      <p>{quantity}</p>
-      <button className="p-5 bg-blue-400" onClick={() => handleDecrease(id)}>
-        -
-      </button>
+    <div className="flex flex-row justify-between items-center mt-4 ">
+      <div className="flex flex-row gap-6 items-center">
+        <img className="w-[5rem]" src={productImages} alt={title} />
+        <div>
+          <h2 className="text-main_white text-HeaderSizeSmall">{title}</h2>
+          <p className="text-ParagraphSize text-alternativ_white">{item}</p>
+          <p className="text-ParagraphSize text-alternativ_white">{price},-</p>
+        </div>
+      </div>
+      <div className="flex flex-row gap-2 items-center">
+        <button className="p-1 w-6 h-6 text-center flex items-center justify-center rounded-full bg-main_white text-main_black hover:bg-alternativ_black hover:text-main_white" onClick={() => increaseProductNumber(id)}>
+          +
+        </button>
+        <p>{quantity}</p>
+        <button className="p-1 w-6 h-6 text-center flex items-center justify-center rounded-full bg-main_white text-main_black hover:bg-alternativ_black hover:text-main_white" onClick={() => handleDecrease(id)}>
+          -
+        </button>
+      </div>
     </div>
   );
 };
