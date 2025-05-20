@@ -2,7 +2,7 @@ import { create } from "zustand";
 
 export const useStore = create((set) => ({
   productQuantities: {},
-  allProductQuantities: (0),
+  allProductQuantities: 0,
 
   increaseProductNumber: (id) =>
     set((state) => ({
@@ -35,8 +35,8 @@ export const useStore = create((set) => ({
         [id]: 0,
       },
     })),
-  increaseProductNumber: () => set((state) => ({ products: state.products + 1 })),
-  decreaseProductNumber: () => set((state) => ({ products: state.products - 1 })),
+  increaseAllProductNumber: () => set((state) => ({ allProductQuantities: state.allProductQuantities + 1 })),
+  decreaseAllProductNumber: () => set((state) => ({ allProductQuantities: state.allProductQuantities - 1 })),
 
   // quantatityAndPriceCalculater: (id, price) =>
   //   set((state) => {

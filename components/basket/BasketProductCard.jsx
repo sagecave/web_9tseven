@@ -1,26 +1,29 @@
 import { useStore } from "../../globalHooks/basketHooks";
 import { useBasketStore } from "../../globalHooks/basketProduct";
-// removeOneProduct
+
 const BasketProductCard = ({ title, id, productImages, item, price, setProductPriceArray, productPriceArray }) => {
   const increaseProductNumber = useStore((state) => state.increaseProductNumber);
   const decreaseProductNumber = useStore((state) => state.decreaseProductNumber);
   const removeProductQuantities = useStore((state) => state.removeProductQuantities);
   const remove = useBasketStore((state) => state.remove);
+  const increaseAllProductNumber = useStore((state) => state.increaseAllProductNumber);
+  const decreaseAllProductNumber = useStore((state) => state.decreaseAllProductNumber);
   const productQuantities = useStore((state) => state.productQuantities);
   const quantity = productQuantities[id] || 1;
 
   function handleDecrease(id) {
     if (quantity > 1) {
       decreaseProductNumber(id);
+      decreaseAllProductNumber();
     } else if (quantity <= 1) {
       remove(id);
+      decreaseAllProductNumber();
       removeProductQuantities(id);
     }
   }
   function handleIncrease(id) {
     increaseProductNumber(id);
-
-    console.log("productPriceArray", productPriceArray);
+    increaseAllProductNumber();
   }
 
   return (

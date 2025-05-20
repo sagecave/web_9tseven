@@ -11,6 +11,8 @@ export default function SingleProductPage() {
   const productQuantities = useStore((state) => state.productQuantities);
   const quantity = productQuantities[productsData[0]?.id] || 0;
   const increaseProductNumber = useStore((state) => state.increaseProductNumber);
+  const increaseAllProductNumber = useStore((state) => state.increaseAllProductNumber);
+
   const quantatityAndPriceCalculater = useStore((state) => state.quantatityAndPriceCalculater);
 
   const HandleUpdateProducts = () => {
@@ -28,15 +30,13 @@ export default function SingleProductPage() {
     ];
     if (quantity >= 1) {
       increaseProductNumber(productsData[0]?.id);
-      // quantatityAndPriceCalculater(productsData[0]?.id, productsData[0]?.price);
+      increaseAllProductNumber();
     } else {
       console.log("Product already in basket", quantity);
       increaseProductNumber(productsData[0]?.id);
+      increaseAllProductNumber();
       update(newProducts);
-      // quantatityAndPriceCalculater(productsData[0]?.id, productsData[0]?.price);
     }
-    // increaseProductNumber(productsData[0]?.id);
-    // update(newProducts);
   };
   useEffect(() => {
     async function getBandBySlug(slug) {

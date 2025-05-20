@@ -7,10 +7,13 @@ import basketIcon from "../../public/assets/icons/basket.svg";
 import loop from "../../public/assets/icons/loop.svg";
 import personCircle from "../../public/assets/icons/personCircle.svg";
 import BasketModal from "../basket/BasketModal";
+import { useStore } from "../../globalHooks/basketHooks";
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isBasketOpen, setBasketOpen] = useState(false);
+
+  const allProductQuantities = useStore((state) => state.allProductQuantities);
   const handleMenuClick = () => {
     setIsOpen(!isOpen);
   };
@@ -50,6 +53,7 @@ const HamburgerMenu = () => {
               <Link href="#">
                 <button type="button" aria-expanded={isBasketOpen} aria-label="Open Basket" onClick={handleBasketClick} className=" cursor-pointer">
                   <Image src={basketIcon} alt="Logo" width={20} height={20} />
+                  <p>{allProductQuantities}</p>
                 </button>
               </Link>
             </li>
@@ -92,6 +96,7 @@ const HamburgerMenu = () => {
                 <Link href="#">
                   <button type="button" aria-expanded={isBasketOpen} aria-label="Open Basket" onClick={handleBasketClick} className=" cursor-pointer">
                     <Image src={basketIcon} alt="Logo" width={20} height={20} />
+                    <p>{allProductQuantities}</p>
                   </button>
                 </Link>
               </li>
