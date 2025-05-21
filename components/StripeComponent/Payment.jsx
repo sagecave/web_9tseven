@@ -42,7 +42,7 @@ const payment = () => {
               options={{
                 mode: "payment",
                 amount: convertToSubcurrency(amount),
-                currency: "usd",
+                currency: "dkk",
               }}
             >
               <CheckoutPage amount={amount} />

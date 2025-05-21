@@ -7,13 +7,11 @@ export default function SingleProductPage() {
   const params = useParams();
   const slug = params.slug;
   const [productsData, setProductData] = useState([]);
-  const { BasketSatete, update } = useBasketStore();
+  const { update } = useBasketStore();
   const productQuantities = useStore((state) => state.productQuantities);
   const quantity = productQuantities[productsData[0]?.id] || 0;
   const increaseProductNumber = useStore((state) => state.increaseProductNumber);
   const increaseAllProductNumber = useStore((state) => state.increaseAllProductNumber);
-
-  const quantatityAndPriceCalculater = useStore((state) => state.quantatityAndPriceCalculater);
 
   const HandleUpdateProducts = () => {
     const newProducts = [
@@ -86,5 +84,3 @@ export default function SingleProductPage() {
     </section>
   );
 }
-
-// {data.title}
