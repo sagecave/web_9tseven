@@ -20,15 +20,19 @@ const payment = () => {
     return acc + product.price * quantity;
   }, 0);
 
-  // const amount = totalPrices;
-  const amount = 1;
+  const amount = totalPrices;
+  // const amount = 1;
   return (
     <div>
       <div className="  h-screen grid grid-cols-2">
         <div className="grid-span-3 ">
           <div className="snap-y snap-mandatory overflow-y-scroll h-full p-4 ">
             <h1 className="text-HeaderSizeSmall text-main_black">Your Items</h1>
-            <div>{BasketSatete.map((product) => (console.log("product", product), (<BasketProductCard key={product.id} id={product.id} title={product.title} productImages={product.first_image} item={product.item} price={product.price} />)))}</div>
+            <div className="h-[80vh] snap-y snap-mandatory overflow-y-scroll">
+              {BasketSatete.map(
+                (product) => (console.log("product", product), (<BasketProductCard key={product.id} id={product.id} title={product.title} productImages={product.first_image} item={product.item} price={product.price} variant="whiteBackground" />))
+              )}
+            </div>
           </div>
         </div>
         <div className="grid-span-4  p-6 ">

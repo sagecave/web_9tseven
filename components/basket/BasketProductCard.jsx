@@ -1,7 +1,7 @@
 import { useStore } from "../../globalHooks/basketHooks";
 import { useBasketStore } from "../../globalHooks/basketProduct";
 
-const BasketProductCard = ({ title, id, productImages, item, price, setProductPriceArray, productPriceArray }) => {
+const BasketProductCard = ({ title, id, productImages, item, price, variant = "blackBackground" }) => {
   const increaseProductNumber = useStore((state) => state.increaseProductNumber);
   const decreaseProductNumber = useStore((state) => state.decreaseProductNumber);
   const removeProductQuantities = useStore((state) => state.removeProductQuantities);
@@ -26,22 +26,43 @@ const BasketProductCard = ({ title, id, productImages, item, price, setProductPr
     increaseAllProductNumber();
   }
 
+  let baseStylesHeader = "text-main_white text-HeaderSizeSmall";
+  let baseStylesParagraph = "text-ParagraphSize text-alternativ_white";
+  let headerVariantStyles = "";
+  let paragraphVariantStyles = "";
+  let buttonsStyle = "";
+  let cardContainer = "";
+  switch (variant) {
+    case "whiteBackground":
+      headerVariantStyles = "text-main_black text-HeaderSizeSmall";
+      paragraphVariantStyles = "text-ParagraphSize text-alternativ_black";
+      buttonsStyle = "hidden";
+      cardContainer = "flex md:flex-row justify-between items-center mt-4 border-alternativ_white border-1 p-2";
+
+      break;
+    case "blackBackground":
+      headerVariantStyles = "text-main_white text-HeaderSizeSmall";
+      paragraphVariantStyles = "text-ParagraphSize text-alternativ_white";
+      buttonsStyle = "p-1 w-6 h-6 text-center flex items-center justify-center rounded-full bg-main_white text-main_black hover:bg-alternativ_black hover:text-main_white";
+      cardContainer = "flex md:flex-row justify-between items-center mt-4 ";
+      break;
+  }
   return (
-    <div className="flex md:flex-row justify-between items-center mt-4 ">
-      <div className="flex flex-row gap-6 items-center">
+    <div className={cardContainer}>
+      <div className="flex flex-row gap-6 items-center ">
         <img className="w-[5rem]" src={productImages} alt={title} />
         <div>
-          <h2 className="text-main_white text-HeaderSizeSmall">{title}</h2>
-          <p className="text-ParagraphSize text-alternativ_white">{item}</p>
-          <p className="text-ParagraphSize text-alternativ_white">{price},-</p>
+          <h2 className={headerVariantStyles}>{title}</h2>
+          <p className={paragraphVariantStyles}>{item}</p>
+          <p className={paragraphVariantStyles}>{price},-</p>
         </div>
       </div>
       <div className="flex flex-row gap-2 items-center">
-        <button className="p-1 w-6 h-6 text-center flex items-center justify-center rounded-full bg-main_white text-main_black hover:bg-alternativ_black hover:text-main_white" onClick={() => handleIncrease(id)}>
+        <button className={buttonsStyle} onClick={() => handleIncrease(id)}>
           +
         </button>
-        <p>{quantity}</p>
-        <button className="p-1 w-6 h-6 text-center flex items-center justify-center rounded-full bg-main_white text-main_black hover:bg-alternativ_black hover:text-main_white" onClick={() => handleDecrease(id)}>
+        <p className={paragraphVariantStyles}>{quantity}</p>
+        <button className={buttonsStyle} onClick={() => handleDecrease(id)}>
           -
         </button>
       </div>
