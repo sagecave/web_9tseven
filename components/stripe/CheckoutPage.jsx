@@ -60,8 +60,8 @@ const CheckoutPage = ({ amount }) => {
         {clientSecret && <PaymentElement />}
 
         {error && <div>{error}</div>}
-        <button className=" disabled:animate-pulse disabled:opacity-50" disabled={!stripe || isLoading}>
-          {!isLoading ? `Pay $ ${amount}` : "Processing..."}
+        <button className=" disabled:animate-pulse disabled:opacity-50 bg-main_black hover:bg-alternativ_black p-4 w-full mt-2" disabled={!stripe || isLoading}>
+          {!isLoading ? `Pay $${amount}` : "Processing..."}
         </button>
       </form>
     );

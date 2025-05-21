@@ -6,6 +6,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { useStore } from "../../globalHooks/basketHooks";
 import { useBasketStore } from "../../globalHooks/basketProduct";
+import BasketProductCard from "../basket/BasketProductCard";
 if (process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY === undefined) {
   throw new Error("Missing Stripe publishable key");
 }
@@ -19,25 +20,34 @@ const payment = () => {
     return acc + product.price * quantity;
   }, 0);
 
-  const amount = totalPrices;
+  // const amount = totalPrices;
+  const amount = 1;
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className=" bg-pink-500 w-1/2 p-6 flex flex-col justify-center items-center rounded-lg shadow-lg">
-        <h1 className="text-HeaderSizeSmall text-main_black pb-[20]">Checkout</h1>
-        <p className="text-HeaderSizeSmall text-main_black pb-[20]">
-          Has requested <span>{amount}</span>
-        </p>
-        <div className="flex justify-center items-center">
-          <Elements
-            stripe={stripePromise}
-            options={{
-              mode: "payment",
-              amount: convertToSubcurrency(amount),
-              currency: "usd",
-            }}
-          >
-            <CheckoutPage amount={amount} />
-          </Elements>
+    <div>
+      <div className="  h-screen grid grid-cols-2">
+        <div className="grid-span-3 ">
+          <div className="snap-y snap-mandatory overflow-y-scroll h-full p-4 ">
+            <h1 className="text-HeaderSizeSmall text-main_black">Your Items</h1>
+            <div>{BasketSatete.map((product) => (console.log("product", product), (<BasketProductCard key={product.id} id={product.id} title={product.title} productImages={product.first_image} item={product.item} price={product.price} />)))}</div>
+          </div>
+        </div>
+        <div className="grid-span-4  p-6 ">
+          <h1 className="text-HeaderSizeSmall text-main_black pb-[20]">Checkout</h1>
+          {/* <p className="text-HeaderSizeSmall text-main_black pb-[20]">
+            Has requested <span>{amount}</span>
+          </p> */}
+          <div className="">
+            <Elements
+              stripe={stripePromise}
+              options={{
+                mode: "payment",
+                amount: convertToSubcurrency(amount),
+                currency: "usd",
+              }}
+            >
+              <CheckoutPage amount={amount} />
+            </Elements>
+          </div>
         </div>
       </div>
     </div>

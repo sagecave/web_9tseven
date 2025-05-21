@@ -57,7 +57,7 @@ const BasketModal = (isBasketOpen, setBasketOpen) => {
                 <p className="text-main_white">Total</p>
                 <p className="text-main_white">{totalPrices},-</p>
               </div>
-              <button onClick={() => handleAmountSendtToStripe()} className="p-4 w-full bg-main_white hover:bg-alternativ_black hover:text-main_white text-main_black">
+              <button onClick={() => handleAmountSendtToStripe()} className="  p-4 w-full bg-main_white hover:bg-alternativ_black hover:text-main_white text-main_black">
                 checkout
               </button>
             </div>

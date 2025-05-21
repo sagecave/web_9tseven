@@ -24,6 +24,10 @@ a {
   font-family: var(--font-paragraph);
 }
 
+button {
+  cursor: pointer;
+}
+
 @theme inline {
   /* This white is mainly used to background colors, and for some text colors(headers), where the background and white */
   --color-main_white: #ffffff;
