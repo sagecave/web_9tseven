@@ -53,7 +53,9 @@ const HamburgerMenu = () => {
               <Link href="#">
                 <button type="button" aria-expanded={isBasketOpen} aria-label="Open Basket" onClick={handleBasketClick} className=" cursor-pointer">
                   <Image src={basketIcon} alt="Logo" width={20} height={20} />
-                  <p>{allProductQuantities}</p>
+                  <div className="absolute top-6.5 right-5.5 bg-main_white text-main_black rounded-full border-main_black w-3 h-3 flex justify-center items-center">
+                    <div className="text-[0.6rem]">{allProductQuantities}</div>
+                  </div>
                 </button>
               </Link>
             </li>
@@ -96,7 +98,9 @@ const HamburgerMenu = () => {
                 <Link href="#">
                   <button type="button" aria-expanded={isBasketOpen} aria-label="Open Basket" onClick={handleBasketClick} className=" cursor-pointer">
                     <Image src={basketIcon} alt="Logo" width={20} height={20} />
-                    <p>{allProductQuantities}</p>
+                    <div className="absolute top-5 right-11 bg-main_white text-main_black rounded-full border-main_black w-3 h-3 flex justify-center items-center">
+                      <div className="text-[0.6rem]">{allProductQuantities}</div>
+                    </div>
                   </button>
                 </Link>
               </li>
