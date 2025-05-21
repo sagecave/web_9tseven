@@ -3,18 +3,39 @@ import { motion, AnimatePresence } from "motion/react";
 import BasketProductCard from "./BasketProductCard";
 import { useBasketStore } from "../../globalHooks/basketProduct";
 import { useStore } from "../../globalHooks/basketHooks";
-import { useState, useEffect, use } from "react";
+import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 
 const BasketModal = (isBasketOpen, setBasketOpen) => {
   const { BasketSatete } = useBasketStore();
-
+  const router = useRouter();
   const productQuantities = useStore((state) => state.productQuantities);
-
+  const getValueOfProducts = useStore((state) => state.getValueOfProducts);
+  const [totalAmount, setTotalAmount] = useState(0);
   const totalPrices = BasketSatete.reduce((acc, product) => {
     const quantity = productQuantities[product.id] || 0;
     return acc + product.price * quantity;
   }, 0);
-  console.log("BasketSatete modal", BasketSatete);
+  const handleRouterPayment = () => {
+    router.push("/paymentPage");
+  };
+  const handleAmountSendtToStripe = () => {
+    console.log("totalPrices", totalPrices);
+    if (totalPrices === 0) {
+      console.log("No products has no price");
+    } else {
+      console.log("Products has a price");
+      setTotalAmount(totalPrices);
+      getValueOfProducts(totalAmount);
+    }
+  };
+
+  useEffect(() => {
+    if (totalAmount > 0) {
+      handleRouterPayment();
+    }
+  }, [totalAmount]);
+
   return (
     <div>
       <AnimatePresence>
@@ -36,7 +57,9 @@ const BasketModal = (isBasketOpen, setBasketOpen) => {
                 <p className="text-main_white">Total</p>
                 <p className="text-main_white">{totalPrices},-</p>
               </div>
-              <button className="p-4 w-full bg-main_white hover:bg-alternativ_black hover:text-main_white text-main_black">checkout</button>
+              <button onClick={() => handleAmountSendtToStripe()} className="p-4 w-full bg-main_white hover:bg-alternativ_black hover:text-main_white text-main_black">
+                checkout
+              </button>
             </div>
           </motion.div>
         )}
