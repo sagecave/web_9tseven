@@ -6,7 +6,7 @@ import { useStore } from "../../globalHooks/basketHooks";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 
-const BasketModal = (isBasketOpen, setBasketOpen) => {
+const BasketModal = ({ isBasketOpen, setBasketOpen }) => {
   const { BasketSatete } = useBasketStore();
   const router = useRouter();
   const productQuantities = useStore((state) => state.productQuantities);
@@ -27,6 +27,8 @@ const BasketModal = (isBasketOpen, setBasketOpen) => {
       console.log("Products has a price");
       setTotalAmount(totalPrices);
       getValueOfProducts(totalAmount);
+      setBasketOpen(!isBasketOpen);
+      handleRouterPayment();
     }
   };
 

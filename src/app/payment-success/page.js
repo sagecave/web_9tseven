@@ -1,11 +1,24 @@
-const paymentSuccessPage = ({ searchParams: { amount } }) => {
+"use client";
+import Link from "next/link";
+
+import React from "react";
+
+const paymentSuccessPage = ({ searchParams }) => {
+  const { amount } = React.use(searchParams);
+
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className=" bg-pink-500 w-1/2 p-6 flex flex-col justify-center items-center rounded-lg shadow-lg">
+    <div className="flex justify-center h-auto mt-10">
+      <div className=" border-2 border-alternativ_white w-1/2 p-6 flex flex-col justify-center items-center rounded-lg shadow-lg">
         <h1 className="text-HeaderSizeSmall text-main_black pb-[20]">Payment Success</h1>
+        <p className="text-HeaderSizeSmall text-main_black pb-[20]">You have successfully paid</p>
+
         <p className="text-HeaderSizeSmall text-main_black pb-[20]">
-          You have successfully paid <span>{amount}</span>
+          Total <span>{amount},-</span>
         </p>
+
+        <Link className="bg-main_black text-main_white p-2 text-ParagraphSize  hover:bg-alternativ_black" href="/">
+          Get back to front page
+        </Link>
       </div>
     </div>
   );
