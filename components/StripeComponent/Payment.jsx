@@ -26,7 +26,7 @@ const payment = () => {
     <div>
       <div className="  h-screen grid grid-cols-2">
         <div className="grid-span-3 ">
-          <div className="snap-y snap-mandatory overflow-y-scroll h-full p-4 ">
+          <div className="snap-y snap-mandatory overflow-y-scroll h-full p-6 ">
             <h1 className="text-HeaderSizeSmall text-main_black">Your Items</h1>
             <div className="h-[80vh] snap-y snap-mandatory overflow-y-scroll">
               {BasketSatete.map(
@@ -35,7 +35,7 @@ const payment = () => {
             </div>
           </div>
         </div>
-        <div className="grid-span-4  p-6 ">
+        <div className="grid-span-4 p-6 ">
           <h1 className="text-HeaderSizeSmall text-main_black pb-[20]">Checkout</h1>
           {/* <p className="text-HeaderSizeSmall text-main_black pb-[20]">
             Has requested <span>{amount}</span>
