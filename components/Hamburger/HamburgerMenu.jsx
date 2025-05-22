@@ -73,7 +73,7 @@ const HamburgerMenu = () => {
                 <Link href="#">Community</Link>
               </li>
               <li className="hover:text-main_white hover:underline">
-                <Link href="#">About</Link>
+                <Link href="/aboutPage">About</Link>
               </li>
             </ul>
           </div>
@@ -121,7 +121,7 @@ const HamburgerMenu = () => {
                     <Link href="#">Community</Link>
                   </li>
                   <li className="hover:text-main_white hover:underline">
-                    <Link href="#">About</Link>
+                    <Link href="/aboutPage">About</Link>
                   </li>
                 </ul>
               </div>
