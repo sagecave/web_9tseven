@@ -14,8 +14,10 @@ const Footer = () => {
             <input className="border-2 border-main_white border-l-[0] w-[5rem] h-[3rem] p-2 hover:bg-alternativ_black " type="submit" />
 
             <div>
-              <input type="checkbox" name="mail"></input>
-              <p>I accept the terms</p>
+              <div className="flex flex-row gap-2">
+                <input type="checkbox" name="mail"></input>
+                <p>I accept the terms</p>
+              </div>
               <p>Read terms</p>
             </div>
           </form>
