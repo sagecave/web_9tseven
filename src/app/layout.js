@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import HamburgerMenu from "../../components/Hamburger/HamburgerMenu";
+import Footer from "../../components/footer/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +26,9 @@ export default function RootLayout({ children }) {
           <HamburgerMenu />
         </header>
         <main className="col-start-2 col-end-3">{children}</main>
-        <footer className="col-start-1 col-end-4"></footer>
+        <footer className="col-start-1 col-end-4">
+          <Footer></Footer>
+        </footer>
       </body>
     </html>
   );
