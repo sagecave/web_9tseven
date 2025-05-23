@@ -2,8 +2,8 @@ import Payment from "../../../components/StripeComponent/Payment";
 
 export default function Home() {
   return (
-    <div>
+    <section className="grid col-start-2 col-end-3 ">
       <Payment></Payment>
-    </div>
+    </section>
   );
 }

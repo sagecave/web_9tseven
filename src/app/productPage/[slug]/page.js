@@ -64,7 +64,7 @@ export default function SingleProductPage() {
   }, [slug]);
 
   return (
-    <section className=" md:grid md:grid-cols-2">
+    <section className="  grid col-start-2 col-end-3 ">
       <div className="hidden md:block md:col-start-1 md:col-end-3">
         <h1 className=" text-HeaderSizeBig text-main_black">{productsData[0]?.title}</h1>
         <p className="text-ParagraphSize text-alternativ_black">bredcrum path</p>

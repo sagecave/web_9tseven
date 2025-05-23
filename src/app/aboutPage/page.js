@@ -1,6 +1,6 @@
 const about = () => {
   return (
-    <section className="h-[80vh]">
+    <section className="h-[80vh] grid col-start-2 col-end-3">
       <div className="flex flex-col justify-center items-center gap-5 mt-5">
         <h1 className="text-HeaderSizeSmall text-main_black">ABOUT US</h1>
         <div className="text-alternativ_black text-ParagraphSize flex flex-col gap-5">

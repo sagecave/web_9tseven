@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
         <header className="col-start-1 col-end-4">
           <HamburgerMenu />
         </header>
-        <main className="col-start-2 col-end-3">{children}</main>
+        <main className="grid grid-cols-subgrid col-start-1 col-end-4  ">{children}</main>
         <footer className="col-start-1 col-end-4">
           <Footer></Footer>
         </footer>
