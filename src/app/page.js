@@ -10,7 +10,11 @@ export default function Home() {
       </section>
       <section className="grid lg:col-start-2 lg:col-end-3 col-start-1 col-end-4 mt-10">
         <ProductLayout>
-          <ProductContainer />
+          <ProductContainer
+            images="firstProductShow"
+            header="GRATITUDE"
+            paragraph="Gratitude means noticing and appreciating the good things in life. It can boost your mood and help you feel more connected. With Social Run, it’s easier to feel grateful — whether it's for a shared smile, a team effort, or just showing up together. Running with others brings small moments that mean a lot."
+          />
         </ProductLayout>
       </section>
       <section className="h-[100vh] col-start-1 col-end-4 grid overflow-hidden  relative">
@@ -21,7 +25,13 @@ export default function Home() {
       </section>
       <section className="grid lg:col-start-2 lg:col-end-3 col-start-1 col-end-4 mt-10">
         <ProductLayout>
-          <ProductContainer />
+          <ProductContainer
+            variant="reverseContainer"
+            images="secoundProductShow"
+            header="DIVERSITY"
+            paragraph="Creating a space for diversity means welcoming different people, voices, and stories. It makes us stronger and more open-minded.
+With Social Run, everyone is invited — no matter your background, pace, or experience. It’s a place where we move together and learn from each other."
+          />
         </ProductLayout>
       </section>
       <section className="h-[100vh] col-start-1 col-end-4 grid overflow-hidden  relative">
@@ -29,7 +39,12 @@ export default function Home() {
       </section>
       <section className="grid lg:col-start-2 lg:col-end-3 col-start-1 col-end-4 mt-10">
         <ProductLayout>
-          <ProductContainer />
+          <ProductContainer
+            images="thirdProductShow"
+            header="WELCOME ALL FEELINGS"
+            paragraph="Welcome all feelings means it's okay to feel happy, tired, nervous, or excited — all emotions are valid. You don't have to hide how you feel.
+With Social Run, you can show up just as you are. It's a space where you're met with support, no matter your mood. We run together — with all our feelings."
+          />
         </ProductLayout>
       </section>
       <section className="h-[100vh] col-start-1 col-end-4 grid overflow-hidden  relative">

@@ -21,7 +21,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white grid grid-cols-[10%_1fr_10%] `}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white grid grid-cols-[5%_1fr_5%] `}>
         <header className="col-start-1 col-end-4">
           <HamburgerMenu />
         </header>
