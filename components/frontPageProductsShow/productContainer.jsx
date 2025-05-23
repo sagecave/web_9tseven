@@ -45,7 +45,7 @@ const ProductContainer = () => {
         </p>
       </div>
       <div className="lg:col-start-3 row-start-1 lg:row-end-4 row-span-1">
-        <Image src="/assets/images/firstProductShow.jpg" alt="hero" width={500} height={500} />
+        <Image className=" object-cover w-full lg:w-[500]" src="/assets/images/firstProductShow.jpg" alt="hero" width={500} height={500} />
       </div>
     </section>
   );
