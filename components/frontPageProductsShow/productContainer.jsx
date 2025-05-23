@@ -6,7 +6,7 @@ import { fetchProducts } from "../../api/products";
 
 import Image from "next/image";
 
-const ProductContainer = ({ header, paragraph, images, variant = "normalContainer" }) => {
+const ProductContainer = ({ header, paragraph, images, variant = "normalContainer", slice1, slice2, slice3, slice4 }) => {
   const {
     data: productData,
     isLoading,
@@ -27,6 +27,8 @@ const ProductContainer = ({ header, paragraph, images, variant = "normalContaine
   let imageGridClass = "";
   let imagesContainer = "";
   let textConatiner = "";
+  let test = 1;
+  let test2 = 2;
   switch (variant) {
     case "normalContainer":
       //   imagesContainer = "grid grid-cols-2 gap-4 lg:pr-4";
@@ -53,8 +55,8 @@ const ProductContainer = ({ header, paragraph, images, variant = "normalContaine
           <div className={imagesContainer}>
             {productData
 
-              .slice(2, 3)
-              .concat(productData.slice(0, 1))
+              .slice(slice1, slice2)
+              .concat(productData.slice(slice3, slice4))
               .map((item) => (
                 <ProductCard key={item.id} productImage={item.first_image} title={item.title} category={item.category} price={item.price} slugName={item.slug_name} />
               ))}

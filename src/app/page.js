@@ -11,6 +11,10 @@ export default function Home() {
       <section className="grid lg:col-start-2 lg:col-end-3 col-start-1 col-end-4 mt-10">
         <ProductLayout>
           <ProductContainer
+            slice1="2"
+            slice2="3"
+            slice3="0"
+            slice4="1"
             images="firstProductShow"
             header="GRATITUDE"
             paragraph="Gratitude means noticing and appreciating the good things in life. It can boost your mood and help you feel more connected. With Social Run, it’s easier to feel grateful — whether it's for a shared smile, a team effort, or just showing up together. Running with others brings small moments that mean a lot."
@@ -26,6 +30,10 @@ export default function Home() {
       <section className="grid lg:col-start-2 lg:col-end-3 col-start-1 col-end-4 mt-10">
         <ProductLayout>
           <ProductContainer
+            slice1="4"
+            slice2="5"
+            slice3="6"
+            slice4="7"
             variant="reverseContainer"
             images="secoundProductShow"
             header="DIVERSITY"
@@ -40,6 +48,10 @@ With Social Run, everyone is invited — no matter your background, pace, or exp
       <section className="grid lg:col-start-2 lg:col-end-3 col-start-1 col-end-4 mt-10">
         <ProductLayout>
           <ProductContainer
+            slice1="8"
+            slice2="9"
+            slice3="2"
+            slice4="3"
             images="thirdProductShow"
             header="WELCOME ALL FEELINGS"
             paragraph="Welcome all feelings means it's okay to feel happy, tired, nervous, or excited — all emotions are valid. You don't have to hide how you feel.
