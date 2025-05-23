@@ -1,10 +1,11 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ProductsContainer from "../components/products/ProductContainer";
 const client = new QueryClient();
-const ProductLayout = () => {
+const ProductLayout = ({ children }) => {
   return (
     <QueryClientProvider client={client}>
-      <ProductsContainer></ProductsContainer>
+      {children}
+      {/* <ProductsContainer></ProductsContainer> */}
     </QueryClientProvider>
   );
 };
