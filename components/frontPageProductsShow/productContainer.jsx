@@ -25,8 +25,8 @@ const ProductContainer = () => {
   }
   return (
     <section className="grid lg:grid-cols-2 lg:grid-rows-3 lg:h-[100vh] ">
-      <div className="lg:col-start-1 lg:row-start-1 lg:col-end-3 lg:row-end-3 col-start-1 col-end-4 ">
-        <div className="md:p-0 p-4">
+      <div className="lg:col-start-1 lg:row-start-1 lg:col-end-3 lg:row-end-3">
+        <div>
           <div className="grid grid-cols-2 gap-4 lg:pr-4">
             {productData
               .slice(2, 3)
@@ -38,14 +38,14 @@ const ProductContainer = () => {
         </div>
       </div>
       <div className="lg:col-start-1 lg:row-start-3 lg:col-end-3">
-        <h2 className=" text-main_black p-4 lg:p-0">GRATITUDE</h2>
-        <p className="lg:w-[20rem] p-4 text-alternativ_black lg:p-0">
+        <h2 className=" text-main_black">GRATITUDE</h2>
+        <p className="md:w-[20rem] text-alternativ_black">
           Gratitude means noticing and appreciating the good things in life. It can boost your mood and help you feel more connected. With Social Run, it’s easier to feel grateful — whether it's for a shared smile, a team effort, or just showing up
           together. Running with others brings small moments that mean a lot.
         </p>
       </div>
-      <div className="lg:col-start-3 row-start-1 lg:row-end-4 row-span-1 col-start-1 col-end-2  ">
-        <Image className=" overflow-hidden " src="/assets/images/firstProductShow.jpg" alt="hero" width={500} height={500} />
+      <div className="lg:col-start-3 row-start-1 lg:row-end-4 row-span-1">
+        <Image src="/assets/images/firstProductShow.jpg" alt="hero" width={500} height={500} />
       </div>
     </section>
   );
