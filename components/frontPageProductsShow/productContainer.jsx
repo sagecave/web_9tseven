@@ -36,13 +36,13 @@ const ProductContainer = ({ header, paragraph, images, variant = "normalContaine
       //   textConatiner = "lg:col-start-1 lg:row-start-3 lg:col-end-3";
       imagesContainer = "grid grid-cols-2 gap-4 lg:pr-4";
       textConatiner = "lg:col-start-1 lg:row-start-3 lg:col-end-3 p-6 lg:p-0";
-      imageGridClass = "lg:col-start-3 row-start-1 lg:row-end-4 row-span-1";
-      productsContainer = "lg:col-start-1 lg:row-start-1 lg:col-end-3 lg:row-end-3 grid hidden lg:block";
+      imageGridClass = "lg:col-start-3 row-start-1 lg:row-end-4 row-span-1 hidden  lg:block";
+      productsContainer = "lg:col-start-1 lg:row-start-1 lg:col-end-3 lg:row-end-3 grid p-6 lg:p-0 ";
 
       break;
     case "reverseContainer":
       imagesContainer = "grid grid-cols-2 gap-4 lg:pr-4";
-      productsContainer = "lg:col-start-2 lg:row-start-1 lg:col-end-4 lg:row-end-3 grid lg:pl-4";
+      productsContainer = "lg:col-start-2 lg:row-start-1 lg:col-end-4 lg:row-end-3 grid lg:pl-4 p-6 lg:p-0";
       textConatiner = "lg:col-start-2 lg:row-start-3 lg:col-end-3 lg:pl-4 p-6 lg:p-0";
       imageGridClass = "lg:col-start-1 lg:col-end-2 row-start-1 lg:row-end-4 row-span-1 hidden lg:block";
 
@@ -68,7 +68,7 @@ const ProductContainer = ({ header, paragraph, images, variant = "normalContaine
         <p className="md:w-[20rem] text-alternativ_black">{paragraph}</p>
       </div>
       <div className={imageGridClass}>
-        <Image className=" object-cover w-full lg:w-[500]" src={`/assets/images/${images}.jpg`} alt="hero" width={500} height={500} />
+        <Image className=" object-cover w-full lg:w-[500] " src={`/assets/images/${images}.jpg`} alt="hero" width={500} height={500} />
       </div>
     </section>
   );
