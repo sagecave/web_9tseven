@@ -32,8 +32,8 @@ export default function Home() {
           <ProductContainer
             slice1="4"
             slice2="5"
-            slice3="6"
-            slice4="7"
+            slice3="7"
+            slice4="8"
             variant="reverseContainer"
             images="secoundProductShow"
             header="DIVERSITY"
@@ -50,8 +50,8 @@ With Social Run, everyone is invited — no matter your background, pace, or exp
           <ProductContainer
             slice1="8"
             slice2="9"
-            slice3="2"
-            slice4="3"
+            slice3="1"
+            slice4="2"
             images="thirdProductShow"
             header="WELCOME ALL FEELINGS"
             paragraph="Welcome all feelings means it's okay to feel happy, tired, nervous, or excited — all emotions are valid. You don't have to hide how you feel.
