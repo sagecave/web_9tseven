@@ -23,7 +23,7 @@ const HamburgerMenu = () => {
   };
   return (
     <>
-      <div className="flex justify-between absolute w-full  p-8 z-20 md:hidden">
+      <div className="flex justify-between absolute w-full   p-8 z-20 md:hidden">
         <button type="button" aria-expanded={isOpen} aria-label="Open Menu" onClick={handleMenuClick} className=" cursor-pointer">
           <div className="flex flex-col gap-1">
             <span className=" w-6 h-0.5 bg-main_white"></span>

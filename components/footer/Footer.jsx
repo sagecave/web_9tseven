@@ -6,8 +6,8 @@ const Footer = () => {
       <div className="flex justify-center mb-5 md:hidden">
         <Image src="/assets/images/logoWhite.png" alt="Logo" width={50} height={50} />
       </div>
-      <div className="flex flex-row md:justify-between">
-        <div className="flex flex-col gap-5">
+      <div className="flex  flex-col-reverse sm:flex-row md:justify-between p-4">
+        <div className="flex flex-col gap-5 mt-5 sm:mt-0">
           <h2 className=" text-HeaderSizeSmall">JOIN THE 9TSEVEN NEWSLETTER</h2>
           <form>
             <input className=" border-2 border-main_white w-auto md:w-[20rem] h-[3rem] p-2" type="text" placeholder="Email address" name="mail" required></input>
@@ -54,6 +54,11 @@ const Footer = () => {
               </li>
               <li className="hover:text-alternativ_white hover:underline">
                 <Link href={"/"}>ABOUT</Link>
+              </li>
+              <li>
+                <div className=" hidden pt-4 md:block ">
+                  <Image src="/assets/images/logoWhite.png" alt="Logo" width={50} height={50} />
+                </div>
               </li>
             </ul>
           </div>
