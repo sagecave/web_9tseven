@@ -6,8 +6,8 @@ const communityPage = () => {
       <div className="grid col-start-1 col-end-4 object-cover">
         <Image className="object-cover w-full" src="/assets/images/communityRun.jpg" alt="Community grup running" width={500} height={300} />
       </div>
-      <div className="grid grid-cols-subgrid col-start-1 col-end-4">
-        <div className="grid col-start-2 col-end-3 mt-4 mb-4 ">
+      <div className="grid grid-cols-subgrid col-start-1 col-end-4 md:grid-cols-2 md:grid-rows-3">
+        <div className="grid col-start-2 col-end-3 mt-4 mb-4 md:col-start-1 md:col-end-2  ">
           <h2 className=" text-HeaderSizeSmall text-main_black">MANIFESTO</h2>
           <p className="text-neutral_black text-ParagraphSize">
             The 9TSEVEN Manifesto is a guide for living with purpose, growth, and connection. It encourages gratitude, self-awareness, and embracing all emotions. It reminds us to value diversity, challenge our limits, and stay committed to personal
@@ -15,11 +15,11 @@ const communityPage = () => {
           </p>
         </div>
 
-        <div className="grid col-start-1 col-end-4 ">
+        <div className="grid col-start-1 col-end-4 md:col-start-2 md:col-end-3 md:row-start-1 md:row-end-2  ">
           <Image className="object-cover w-full md:w-[500]" src="/assets/images/communityStand.jpg" alt="Person sitting down" width={500} height={300} />
         </div>
 
-        <div className="grid col-start-2 col-end-3 mt-4 mb-4">
+        <div className="grid col-start-2 col-end-3 mt-4 mb-4 md:col-start-2 md:col-end-3 ">
           <h2 className="text-main_black text-HeaderSizeSmall">A GUIDANCE OF LIVING</h2>
           <ul className="*:text-neutral_black *:text-ParagraphSize *:pt-4">
             <li>
@@ -56,7 +56,7 @@ const communityPage = () => {
         </div>
 
         <div className="grid col-start-1 col-end-4 ">
-          <Image className="object-cover w-full md:w-[500]" src="/assets/images/communityStand.jpg" alt="Person standing" width={500} height={300} />
+          <Image className="object-cover w-full md:w-[500] md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2" src="/assets/images/communityStand.jpg" alt="Person standing" width={500} height={300} />
         </div>
       </div>
     </section>
