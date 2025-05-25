@@ -74,7 +74,7 @@ export default function SingleProductPage() {
       </div>
       <div className=" text-ParagraphSize text-main_black">
         <h2 className=" text-HeaderSizeSmall text-main_black">{productsData[0]?.title}</h2>
-        <p>{productsData[0]?.price}</p>
+        <p>{productsData[0]?.price} kr</p>
         <p>{productsData[0]?.description}</p>
         <p>SIZES</p>
 

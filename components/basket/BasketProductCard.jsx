@@ -52,7 +52,7 @@ const BasketProductCard = ({ title, id, productImages, item, price, variant = "b
         <div>
           <h2 className={headerVariantStyles}>{title}</h2>
           <p className={paragraphVariantStyles}>{item}</p>
-          <p className={paragraphVariantStyles}>{price},-</p>
+          <p className={paragraphVariantStyles}>{price} kr</p>
         </div>
       </div>
       <div className="flex flex-row gap-2 items-center">
