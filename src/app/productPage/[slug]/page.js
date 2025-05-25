@@ -3,8 +3,7 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useBasketStore } from "../../../../globalHooks/basketProduct";
 import { useStore } from "../../../../globalHooks/basketHooks";
-import { animate, motion, MotionValue, useMotionValue, useMotionValueEvent, useScroll } from "motion/react";
-import { useRef } from "react";
+import { motion } from "motion/react";
 
 export default function SingleProductPage() {
   const params = useParams();
@@ -66,34 +65,6 @@ export default function SingleProductPage() {
     getBandBySlug(slug);
   }, [slug]);
 
-  const ref = useRef(null);
-  const { scrollXProgress } = useScroll({ container: ref });
-  // const maskImage = useScrollOverflowMask(scrollXProgress);
-  // const left = `0%`;
-  // const right = `100%`;
-  // const leftInset = `20%`;
-  // const rightInset = `80%`;
-  // const transparent = `#0000`;
-  // const opaque = `#0000`;
-
-  function useScrollOverflowMask(scrollXProgress) {
-    // const maskImage = useMotionValue(`linear-gradient(90deg, ${opaque}, ${opaque} ${left}, ${opaque} ${rightInset}, ${transparent})`);
-
-    useMotionValueEvent(scrollXProgress, "change", (value) => {
-      console.log("scrollXProgress", value);
-      console.log("scrollXProgress2", scrollXProgress);
-      if (value === 0) {
-        // animate(maskImage, `linear-gradient(90deg, ${opaque}, ${opaque} ${left}, ${opaque} ${rightInset}, ${transparent})`);
-      } else if (value === 1) {
-        // animate(maskImage, `linear-gradient(90deg, ${transparent}, ${opaque} ${leftInset}, ${opaque} ${right}, ${opaque})`);
-      } else if (scrollXProgress.getPrevious() === 0 || scrollXProgress.getPrevious() === 1) {
-        // animate(maskImage, `linear-gradient(90deg, ${transparent}, ${opaque} ${leftInset}, ${opaque} ${rightInset}, ${transparent})`);
-      }
-    });
-
-    return maskImage;
-  }
-
   const images = [productsData[0]?.ModelProductImage, productsData[0]?.ModelProductImage2, productsData[0]?.ModelProductImage3, productsData[0]?.first_image, productsData[0]?.secound_image].filter(Boolean);
 
   return (
@@ -103,11 +74,11 @@ export default function SingleProductPage() {
         <p className="text-ParagraphSize text-alternativ_black">bredcrum path</p>
       </div>
 
-      <div id="example" className="relative w-[100vw] max-w-[500px] bottom-10">
-        <motion.ul className="flex overflow-x-scroll gap-10 snap-x snap-mandatory" ref={ref}>
+      <div id="example" className="relative w-[100vw] max-w-[100vw] md:max-w-[500px] bottom-10">
+        <motion.ul className="flex overflow-x-scroll sm:gap-10 snap-x snap-mandatory ">
           {images.map((image, index) => (
-            <li key={index} className={`w-[500px] snap-x snap-mandatory snap-start`}>
-              <img src={image} alt={`Product Image ${index + 1}`} width={500} height={500} className="object-cover max-w-none" />
+            <li key={index} className={` w-full min-w-full md:w-[500px] snap-x snap-mandatory snap-start`}>
+              <img src={image} alt={`Product Image ${index + 1}`} width={500} height={500} className=" h-auto w-100 md:w-[30rem] object-cover max-w-none" />
             </li>
           ))}
         </motion.ul>
@@ -126,75 +97,3 @@ export default function SingleProductPage() {
     </section>
   );
 }
-
-// /**
-//  * ==============   Styles   ================
-//  */
-
-// function StyleSheet() {
-//   return (
-//     <style>{`
-//             #example {
-//               width: 100vw;
-//               max-width: 400px;
-//               position: relative;
-//             }
-
-//             #example #progress {
-//                 position: absolute;
-//                 top: -65px;
-//                 left: -15px;
-//                 transform: rotate(-90deg);
-//             }
-
-//             #example .bg {
-//                 stroke: #0b1011;
-//             }
-
-//             #example #progress circle {
-//                 stroke-dashoffset: 0;
-//                 stroke-width: 10%;
-//                 fill: none;
-//             }
-
-//             #progress .indicator {
-//                 stroke: var(--accent);
-//             }
-
-//             #example ul {
-//                 display: flex;
-//                 list-style: none;
-//                 height: 220px;
-//                 overflow-x: scroll;
-//                 padding: 20px 0;
-//                 flex: 0 0 600px;
-//                 margin: 0 auto;
-//                 gap: 20px;
-//             }
-
-//             #example ::-webkit-scrollbar {
-//                 height: 5px;
-//                 width: 5px;
-//                 background: #fff3;
-//                 -webkit-border-radius: 1ex;
-//             }
-
-//             #example ::-webkit-scrollbar-thumb {
-//                 background: var(--accent);
-//                 -webkit-border-radius: 1ex;
-//             }
-
-//             #example ::-webkit-scrollbar-corner {
-//                 background: #fff3;
-//             }
-
-//             #example li {
-//                 flex: 0 0 200px;
-//                 background: var(--accent);
-//             }
-
-//     `}</style>
-//   );
-// }
-
-// // {data.title}
