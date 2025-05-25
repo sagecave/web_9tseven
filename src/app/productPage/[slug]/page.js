@@ -3,6 +3,8 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useBasketStore } from "../../../../globalHooks/basketProduct";
 import { useStore } from "../../../../globalHooks/basketHooks";
+import { motion, MotionValue, useScroll, useSpring, useTransform } from "motion/react";
+import { useRef } from "react";
 export default function SingleProductPage() {
   const params = useParams();
   const slug = params.slug;
@@ -16,6 +18,25 @@ export default function SingleProductPage() {
   const quantatityAndPriceCalculater = useStore((state) => state.quantatityAndPriceCalculater);
 
   const HandleUpdateProducts = () => {
+    function useParallax(value, distance) {
+      return useTransform(value, [0, 1], [-distance, distance]);
+    }
+
+    function Image({ id }) {
+      const ref = useRef(null);
+      const { scrollYProgress } = useScroll({ target: ref });
+      const y = useParallax(scrollYProgress, 300);
+
+      return (
+        <section className="img-container">
+          <div ref={ref}>
+            <img src={productsData[0]?.first_image} alt="Product Image" width={500} height={500} className="object-cover" />
+            <img src={productsData[0]?.secound_image} alt="Product Image" width={500} height={500} className="object-cover" />
+          </div>
+        </section>
+      );
+    }
+
     const newProducts = [
       {
         id: productsData[0]?.id,
@@ -62,7 +83,14 @@ export default function SingleProductPage() {
     }
     getBandBySlug(slug);
   }, [slug]);
-
+  function Parallax() {
+    const { scrollYProgress } = useScroll();
+    const scaleX = useSpring(scrollYProgress, {
+      stiffness: 100,
+      damping: 30,
+      restDelta: 0.001,
+    });
+  }
   return (
     <section className="  grid col-start-2 col-end-3 mt-20">
       <div className="hidden md:block md:col-start-1 md:col-end-3">
@@ -70,8 +98,15 @@ export default function SingleProductPage() {
         <p className="text-ParagraphSize text-alternativ_black">bredcrum path</p>
       </div>
       <div>
-        <img src={productsData[0]?.first_image} alt="Product Image" width={500} height={500} className="object-cover" />
-        <img src={productsData[0]?.secound_image} alt="Product Image" width={500} height={500} className="object-cover" />
+        <div id="example">
+          {[1, 2, 3, 4, 5].map((image) => (
+            <Image key={image} id={image} />
+          ))}
+          <motion.div className="progress" style={{ scaleX }} />
+          <StyleSheet />
+        </div>
+        {/* <img src={productsData[0]?.first_image} alt="Product Image" width={500} height={500} className="object-cover" />
+        <img src={productsData[0]?.secound_image} alt="Product Image" width={500} height={500} className="object-cover" /> */}
       </div>
       <div className=" text-ParagraphSize text-main_black">
         <h2 className=" text-HeaderSizeSmall text-main_black">{productsData[0]?.title}</h2>
