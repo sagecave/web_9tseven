@@ -3,7 +3,7 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useBasketStore } from "../../../../globalHooks/basketProduct";
 import { useStore } from "../../../../globalHooks/basketHooks";
-import { animate, motion, MotionValue, useMotionValue, useMotionValueEvent, useScroll } from "motion/react";
+import { animate, motion, MotionValue, useTransform, useSpring, useScroll } from "motion/react";
 import { useRef } from "react";
 
 export default function SingleProductPage() {
@@ -67,7 +67,20 @@ export default function SingleProductPage() {
   }, [slug]);
 
   const ref = useRef(null);
-  const { scrollXProgress } = useScroll({ container: ref });
+  const { scrollXProgress } = useScroll({ target: ref });
+
+  function useParallax(value, distance) {
+    return useTransform(value, [0, 1], [-distance, distance]);
+  }
+  // const { scrollXProgress } = useScroll({ target: ref });
+  // const { scrollXProgress } = useScroll();
+  const x = useParallax(scrollXProgress, 300);
+  const scaleX = useSpring(scrollXProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
   // const maskImage = useScrollOverflowMask(scrollXProgress);
   // const left = `0%`;
   // const right = `100%`;
@@ -76,23 +89,23 @@ export default function SingleProductPage() {
   // const transparent = `#0000`;
   // const opaque = `#0000`;
 
-  function useScrollOverflowMask(scrollXProgress) {
-    // const maskImage = useMotionValue(`linear-gradient(90deg, ${opaque}, ${opaque} ${left}, ${opaque} ${rightInset}, ${transparent})`);
+  // function useScrollOverflowMask(scrollXProgress) {
+  //   // const maskImage = useMotionValue(`linear-gradient(90deg, ${opaque}, ${opaque} ${left}, ${opaque} ${rightInset}, ${transparent})`);
 
-    useMotionValueEvent(scrollXProgress, "change", (value) => {
-      console.log("scrollXProgress", value);
-      console.log("scrollXProgress2", scrollXProgress);
-      if (value === 0) {
-        // animate(maskImage, `linear-gradient(90deg, ${opaque}, ${opaque} ${left}, ${opaque} ${rightInset}, ${transparent})`);
-      } else if (value === 1) {
-        // animate(maskImage, `linear-gradient(90deg, ${transparent}, ${opaque} ${leftInset}, ${opaque} ${right}, ${opaque})`);
-      } else if (scrollXProgress.getPrevious() === 0 || scrollXProgress.getPrevious() === 1) {
-        // animate(maskImage, `linear-gradient(90deg, ${transparent}, ${opaque} ${leftInset}, ${opaque} ${rightInset}, ${transparent})`);
-      }
-    });
+  //   useMotionValueEvent(scrollXProgress, "change", (value) => {
+  //     console.log("scrollXProgress", value);
+  //     console.log("scrollXProgress2", scrollXProgress);
+  //     if (value === 0) {
+  //       // animate(maskImage, `linear-gradient(90deg, ${opaque}, ${opaque} ${left}, ${opaque} ${rightInset}, ${transparent})`);
+  //     } else if (value === 1) {
+  //       // animate(maskImage, `linear-gradient(90deg, ${transparent}, ${opaque} ${leftInset}, ${opaque} ${right}, ${opaque})`);
+  //     } else if (scrollXProgress.getPrevious() === 0 || scrollXProgress.getPrevious() === 1) {
+  //       // animate(maskImage, `linear-gradient(90deg, ${transparent}, ${opaque} ${leftInset}, ${opaque} ${rightInset}, ${transparent})`);
+  //     }
+  //   });
 
-    return maskImage;
-  }
+  //   return maskImage;
+  // }
 
   const images = [productsData[0]?.ModelProductImage, productsData[0]?.ModelProductImage2, productsData[0]?.ModelProductImage3, productsData[0]?.first_image, productsData[0]?.secound_image].filter(Boolean);
 
@@ -104,9 +117,9 @@ export default function SingleProductPage() {
       </div>
 
       <div id="example" className="relative w-[100vw] max-w-[500px] bottom-10">
-        <motion.ul className="flex overflow-x-scroll gap-10" ref={ref}>
+        <motion.ul className="flex overflow-x-scroll gap-10 progress snap-x snap-mandatory" ref={ref} style={{ scaleX: scrollXProgress }}>
           {images.map((image, index) => (
-            <li key={index} className={`w-[500px] snap-x snap-mandatory `}>
+            <li key={index} className={`w-[500px] snap-x snap-mandatory snap-start `}>
               <img src={image} alt={`Product Image ${index + 1}`} width={500} height={500} className="object-cover max-w-none" />
             </li>
           ))}
