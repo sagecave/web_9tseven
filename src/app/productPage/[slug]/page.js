@@ -3,6 +3,7 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useBasketStore } from "../../../../globalHooks/basketProduct";
 import { useStore } from "../../../../globalHooks/basketHooks";
+
 export default function SingleProductPage() {
   const params = useParams();
   const slug = params.slug;
@@ -71,6 +72,7 @@ export default function SingleProductPage() {
       </div>
       <div>
         <img src={productsData[0]?.first_image} alt="Product Image" width={500} height={500} className="object-cover" />
+        <img src={productsData[0]?.secound_image} alt="Product Image" width={500} height={500} className="object-cover" />
       </div>
       <div className=" text-ParagraphSize text-main_black">
         <h2 className=" text-HeaderSizeSmall text-main_black">{productsData[0]?.title}</h2>
