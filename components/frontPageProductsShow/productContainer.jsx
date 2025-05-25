@@ -3,7 +3,7 @@ import { useBasketStore } from "../../globalHooks/basketProduct";
 import { useQuery } from "@tanstack/react-query";
 import ProductCard from "../products/ProductCard";
 import { fetchProducts } from "../../api/products";
-
+import Link from "next/link";
 import Image from "next/image";
 
 const ProductContainer = ({ header, paragraph, images, variant = "normalContainer", slice1, slice2, slice3, slice4 }) => {
@@ -27,14 +27,13 @@ const ProductContainer = ({ header, paragraph, images, variant = "normalContaine
   let imageGridClass = "";
   let imagesContainer = "";
   let textConatiner = "";
-  let test = 1;
-  let test2 = 2;
+
   switch (variant) {
     case "normalContainer":
       //   imagesContainer = "grid grid-cols-2 gap-4 lg:pr-4";
 
       //   textConatiner = "lg:col-start-1 lg:row-start-3 lg:col-end-3";
-      imagesContainer = "grid grid-cols-2 gap-4 lg:pr-4";
+      imagesContainer = "grid grid-cols-2 gap-4 lg:pr-4 ";
       textConatiner = "lg:col-start-1 lg:row-start-3 lg:col-end-3 p-6 lg:p-0 ";
       imageGridClass = "lg:col-start-3 row-start-1 lg:row-end-4 row-span-1 hidden  lg:block";
       productsContainer = "lg:col-start-1 lg:row-start-1 lg:col-end-3 lg:row-end-3 grid p-6 lg:p-0 ";
@@ -52,6 +51,12 @@ const ProductContainer = ({ header, paragraph, images, variant = "normalContaine
     <section className="grid lg:grid-rows-3 lg:h-[100vh]  ">
       <div className={productsContainer}>
         <div>
+          <Link href="/productPage" className=" text-main_black lg:w-[50%] text-ParagraphSize hover:text-alternativ_black p-6 lg:p-3">
+            <div className="flex justify-between md:justify-start md:gap-3">
+              <p>PERFROMANCE</p>
+              <p>→</p>
+            </div>
+          </Link>
           <div className={imagesContainer}>
             {productData
 
