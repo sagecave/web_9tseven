@@ -64,13 +64,14 @@ export default function SingleProductPage() {
   }, [slug]);
 
   return (
-    <section className="  grid col-start-2 col-end-3 ">
+    <section className="  grid col-start-2 col-end-3 mt-20">
       <div className="hidden md:block md:col-start-1 md:col-end-3">
         <h1 className=" text-HeaderSizeBig text-main_black">{productsData[0]?.title}</h1>
         <p className="text-ParagraphSize text-alternativ_black">bredcrum path</p>
       </div>
       <div>
         <img src={productsData[0]?.first_image} alt="Product Image" width={500} height={500} className="object-cover" />
+        <img src={productsData[0]?.secound_image} alt="Product Image" width={500} height={500} className="object-cover" />
       </div>
       <div className=" text-ParagraphSize text-main_black">
         <h2 className=" text-HeaderSizeSmall text-main_black">{productsData[0]?.title}</h2>
