@@ -80,6 +80,8 @@ export default function SingleProductPage() {
     // const maskImage = useMotionValue(`linear-gradient(90deg, ${opaque}, ${opaque} ${left}, ${opaque} ${rightInset}, ${transparent})`);
 
     useMotionValueEvent(scrollXProgress, "change", (value) => {
+      console.log("scrollXProgress", value);
+      console.log("scrollXProgress2", scrollXProgress);
       if (value === 0) {
         // animate(maskImage, `linear-gradient(90deg, ${opaque}, ${opaque} ${left}, ${opaque} ${rightInset}, ${transparent})`);
       } else if (value === 1) {
@@ -104,7 +106,7 @@ export default function SingleProductPage() {
       <div id="example" className="relative w-[100vw] max-w-[500px] bottom-10">
         <motion.ul className="flex overflow-x-scroll gap-10" ref={ref}>
           {images.map((image, index) => (
-            <li key={index} className={`w-[600px] snap-x snap-mandatory `}>
+            <li key={index} className={`w-[500px] snap-x snap-mandatory `}>
               <img src={image} alt={`Product Image ${index + 1}`} width={500} height={500} className="object-cover max-w-none" />
             </li>
           ))}
