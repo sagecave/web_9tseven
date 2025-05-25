@@ -43,7 +43,7 @@ const BasketModal = ({ isBasketOpen, setBasketOpen }) => {
       <AnimatePresence>
         {isBasketOpen && (
           <motion.div
-            className="w-full md:w-1/2 h-1/2 bg-main_black z-12 absolute mt-[-1px] md:left-1/2 flex flex-col gap-4 p-4 "
+            className="w-full md:w-1/2 h-1/2 bg-main_black z-12 fixed mt-20 md:left-1/2 flex flex-col gap-4 p-4 "
             key="modal"
             initial={{ x: 300, opacity: 1 }}
             animate={{ x: 0, opacity: 1 }}

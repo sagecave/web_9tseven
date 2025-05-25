@@ -23,7 +23,7 @@ const HamburgerMenu = () => {
   };
   return (
     <>
-      <div className="flex justify-between absolute w-full   p-8 z-20 md:hidden">
+      <div className="flex justify-between fixed w-full p-8 z-20 md:hidden">
         <button type="button" aria-expanded={isOpen} aria-label="Open Menu" onClick={handleMenuClick} className=" cursor-pointer">
           <div className="flex flex-col gap-1">
             <span className=" w-6 h-0.5 bg-main_white"></span>
@@ -39,7 +39,7 @@ const HamburgerMenu = () => {
         {isOpen && <div></div>}
         {!isOpen && (
           <ul className="flex gap-3 ">
-            <li>
+            {/* <li>
               <Link href="#">
                 <Image src={loop} alt="Logo" width={20} height={20} />
               </Link>
@@ -48,24 +48,25 @@ const HamburgerMenu = () => {
               <Link href="#">
                 <Image src={personCircle} alt="Logo" width={20} height={20} />
               </Link>
-            </li>
+            </li> */}
             <li>
-              <Link href="#">
-                <button type="button" aria-expanded={isBasketOpen} aria-label="Open Basket" onClick={handleBasketClick} className=" cursor-pointer">
-                  <Image src={basketIcon} alt="Logo" width={20} height={20} />
-                  <div className="absolute top-6.5 right-5.5 bg-main_white text-main_black rounded-full border-main_black w-3 h-3 flex justify-center items-center">
-                    <div className="text-[0.6rem]">{allProductQuantities}</div>
-                  </div>
-                </button>
-              </Link>
+              <button type="button" aria-expanded={isBasketOpen} aria-label="Open Basket" onClick={handleBasketClick} className=" cursor-pointer">
+                <Image src={basketIcon} alt="Logo" width={20} height={20} />
+                <div className="absolute top-6.5 right-5.5 bg-main_white text-main_black rounded-full border-main_black w-3 h-3 flex justify-center items-center">
+                  <div className="text-[0.6rem]">{allProductQuantities}</div>
+                </div>
+              </button>
             </li>
           </ul>
         )}
       </div>
-      <nav className="w-full p-10 md:pt-6 md:pb-6 md:pl-14 md:pr-14 bg-main_black ">
-        <div className={"hidden    md:flex md:justify-between"}>
+      <nav className="w-full p-10 md:pt-6 md:pb-6 md:pl-14 md:pr-14 bg-main_black fixed top-0 left-0 z-10">
+        <div className={"hidden  md:flex md:justify-between items-center"}>
           <div>
-            <ul className="flex gap-3 ">
+            <ul className="flex gap-3 w-10 ">
+              <li className="hover:text-main_white hover:underline">
+                <Link href="/">Home</Link>
+              </li>
               <li className="hover:text-main_white hover:underline">
                 <Link href="/productPage">Shop</Link>
               </li>
@@ -83,8 +84,8 @@ const HamburgerMenu = () => {
             </Link>
           </div>
           <div className={`${isOpen ? "hidden" : "block"}`}>
-            <ul className="flex gap-3 ">
-              <li>
+            <ul className="flex gap-3 w-10 ">
+              {/* <li>
                 <Link href="#">
                   <Image src={loop} alt="Logo" width={20} height={20} />
                 </Link>
@@ -93,16 +94,14 @@ const HamburgerMenu = () => {
                 <Link href="#">
                   <Image src={personCircle} alt="Logo" width={20} height={20} />
                 </Link>
-              </li>
+              </li> */}
               <li>
-                <Link href="#">
-                  <button type="button" aria-expanded={isBasketOpen} aria-label="Open Basket" onClick={handleBasketClick} className=" cursor-pointer">
-                    <Image src={basketIcon} alt="Logo" width={20} height={20} />
-                    <div className="absolute top-5 right-11 bg-main_white text-main_black rounded-full border-main_black w-3 h-3 flex justify-center items-center">
-                      <div className="text-[0.6rem]">{allProductQuantities}</div>
-                    </div>
-                  </button>
-                </Link>
+                <button type="button" aria-expanded={isBasketOpen} aria-label="Open Basket" onClick={handleBasketClick} className=" cursor-pointer">
+                  <Image src={basketIcon} alt="Logo" width={20} height={20} />
+                  <div className="absolute top-5 right-16 bg-main_white text-main_black rounded-full border-main_black w-3 h-3 flex justify-center items-center">
+                    <div className="text-[0.6rem]">{allProductQuantities}</div>
+                  </div>
+                </button>
               </li>
             </ul>
           </div>
@@ -110,10 +109,13 @@ const HamburgerMenu = () => {
       </nav>
       <AnimatePresence>
         {isOpen && (
-          <motion.div className="w-full h-1/2 bg-main_black z-12 absolute mt-[-1px] " key="modal" initial={{ y: -300, opacity: 1 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -300, opacity: 0 }} transition={{ ease: "easeOut", duration: 0.5 }}>
+          <motion.div className="w-full h-1/2 bg-main_black z-12 fixed mt-20  " key="modal" initial={{ y: -300, opacity: 1 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -300, opacity: 0 }} transition={{ ease: "easeOut", duration: 0.5 }}>
             <div className=" p-6">
               <div>
                 <ul className={`${isOpen ? "flex flex-col z-11 text-HeaderSizeBig text-alternativ_white " : "flex gap-3"}`}>
+                  <li className="hover:text-main_white hover:underline">
+                    <Link href="/">Home</Link>
+                  </li>
                   <li className="hover:text-main_white hover:underline">
                     <Link href="/productPage">Shop</Link>
                   </li>

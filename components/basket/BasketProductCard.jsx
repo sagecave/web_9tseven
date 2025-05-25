@@ -35,7 +35,7 @@ const BasketProductCard = ({ title, id, productImages, item, price, variant = "b
       headerVariantStyles = "text-main_black text-HeaderSizeSmall";
       paragraphVariantStyles = "text-ParagraphSize text-alternativ_black";
       buttonsStyle = "hidden";
-      cardContainer = "flex w-auto h-[14rem] md:flex-row justify-between items-center mt-2 border-alternativ_white ml-2 border-1 p-2";
+      cardContainer = "flex w-auto h-[8rem] md:flex-row justify-between items-center mt-2 border-alternativ_white ml-2 border-1 p-2";
 
       break;
     case "blackBackground":
