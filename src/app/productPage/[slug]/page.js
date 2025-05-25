@@ -74,7 +74,7 @@ export default function SingleProductPage() {
         <p className="text-ParagraphSize text-alternativ_black">bredcrum path</p>
       </div>
 
-      <div id="example" className="relative w-[100vw] max-w-[100vw] md:max-w-[480px] bottom-10">
+      <div id="example" className="relative w-[100vw] max-w-[100vw] md:max-w-[500px] bottom-10">
         <motion.ul className="flex overflow-x-scroll sm:gap-10 snap-x snap-mandatory ">
           {images.map((image, index) => (
             <li key={index} className={` w-full min-w-full md:w-[500px] snap-x snap-mandatory snap-start`}>
