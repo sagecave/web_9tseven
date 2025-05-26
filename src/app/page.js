@@ -9,7 +9,7 @@ export default function Home() {
       <section className=" h-[50vh] md:h-[100vh] col-start-1 col-end-4 grid overflow-hidden  relative">
         <Image src="/assets/images/frontPageFirstPic.jpg" alt="hero" fill className="md:w-full h-full  overflow-hidden  object-cover " />
       </section>
-      <section className="grid md:col-start-2 md:col-end-3 col-start-1 col-end-4 md:mt-10">
+      <section className="grid md:col-start-2 md:col-end-3 col-start-1 col-end-4 md:mt-15">
         <ProductLayout>
           <ProductContainer
             slice1="2"
@@ -31,7 +31,7 @@ export default function Home() {
           </Link>
         </div>
       </section>
-      <section className="grid lg:col-start-2 lg:col-end-3 col-start-1 col-end-4 mt-10">
+      <section className="grid lg:col-start-2 lg:col-end-3 col-start-1 col-end-4 mt-15">
         <ProductLayout>
           <ProductContainer
             slice1="4"
@@ -61,7 +61,7 @@ With Social Run, everyone is invited — no matter your background, pace, or exp
           </Link>
         </div>
       </section>
-      <section className="grid lg:col-start-2 lg:col-end-3 col-start-1 col-end-4 mt-10">
+      <section className="grid lg:col-start-2 lg:col-end-3 col-start-1 col-end-4 mt-15">
         <ProductLayout>
           <ProductContainer
             slice1="8"
