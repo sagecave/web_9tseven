@@ -96,34 +96,35 @@ export default function SingleProductPage() {
           ))}
         </motion.ul>
       </div>
-      <div className=" text-ParagraphSize text-main_black md:ml-6 md:w-[70%] md:relative md:top-[-45px]">
-        <div className="mt-4">
+      <div className=" text-ParagraphSize text-main_black md:ml-6 md:w-[70%] md:relative md:top-[-45px] flex flex-col justify-between gap-2 sm:gap-0">
+        <div className="flex flex-col gap-2">
           <h2 className=" text-HeaderSizeSmall text-main_black">{productsData[0]?.title}</h2>
           <p>{productsData[0]?.price} kr</p>
-          <p>{productsData[0]?.description}</p>
+          <p className="md:w-[90%]">{productsData[0]?.description}</p>
         </div>
-
-        <div className="flex flex-row mt-8">
-          {sizes.map((size, index) => (
-            <button
-              id={index}
-              onClick={() => handleSize(size)}
-              key={index}
-              className={`w-10 p-2 border border-alternativ_black
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-row ">
+            {sizes.map((size, index) => (
+              <button
+                id={index}
+                onClick={() => handleSize(size)}
+                key={index}
+                className={`w-12 h-12 p-2 border border-alternativ_black
             ${selectedSize === size ? "bg-alternativ_black text-main_white" : "text-alternativ_black"}
             hover:bg-alternativ_black hover:text-main_white`}
-            >
-              {size}
+              >
+                {size}
+              </button>
+            ))}
+          </div>
+          <div className="">
+            <button className=" text-main_black   hover:text-gray-500   " onClick={HandleUpdateProducts}>
+              + ADD PRODUCT
             </button>
-          ))}
+            {!chooseText && <p className="text-red-500">You have to choose a size</p>}
+          </div>
         </div>
-        <div className="mt-4">
-          <button className=" text-main_black   hover:text-gray-500   " onClick={HandleUpdateProducts}>
-            + ADD PRODUCT
-          </button>
-          {!chooseText && <p className="text-red-500">You have to choose a size</p>}
-        </div>
-        <div className="mt-6">
+        <div className="mb-10 sm:mb-0">
           {fabricDetails.length > 0 && <h2 className=" text-HeaderSizeSmall">Fabric</h2>}
 
           {fabricDetails.map((fabric, index) => (
@@ -131,19 +132,6 @@ export default function SingleProductPage() {
               <p className="text-alternativ_black">{fabric}</p>
             </div>
           ))}
-
-          {/* <details>
-            <summary>Click to expand</summary>
-            <p>This is the hidden content that shows when open.</p>
-          </details>
-          <details>
-            <summary>t-shirt</summary>
-            <p>This is the hidden content that shows when open.</p>
-          </details>
-          <details>
-            <summary>LOL</summary>
-            <p>This is the hidden content that shows when open.</p>
-          </details> */}
         </div>
       </div>
     </section>
