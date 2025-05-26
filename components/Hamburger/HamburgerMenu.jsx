@@ -4,8 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import basketIcon from "../../public/assets/icons/basket.svg";
-import loop from "../../public/assets/icons/loop.svg";
-import personCircle from "../../public/assets/icons/personCircle.svg";
+
 import BasketModal from "../basket/BasketModal";
 import { useStore } from "../../globalHooks/basketHooks";
 
@@ -39,16 +38,6 @@ const HamburgerMenu = () => {
         {isOpen && <div></div>}
         {!isOpen && (
           <ul className="flex gap-3 ">
-            {/* <li>
-              <Link href="#">
-                <Image src={loop} alt="Logo" width={20} height={20} />
-              </Link>
-            </li>
-            <li>
-              <Link href="#">
-                <Image src={personCircle} alt="Logo" width={20} height={20} />
-              </Link>
-            </li> */}
             <li>
               <button type="button" aria-expanded={isBasketOpen} aria-label="Open Basket" onClick={handleBasketClick} className=" cursor-pointer">
                 <Image src={basketIcon} alt="Logo" width={20} height={20} />
@@ -85,16 +74,6 @@ const HamburgerMenu = () => {
           </div>
           <div className={`${isOpen ? "hidden" : "block"}`}>
             <ul className="flex gap-3 w-10 ">
-              {/* <li>
-                <Link href="#">
-                  <Image src={loop} alt="Logo" width={20} height={20} />
-                </Link>
-              </li>
-              <li>
-                <Link href="#">
-                  <Image src={personCircle} alt="Logo" width={20} height={20} />
-                </Link>
-              </li> */}
               <li>
                 <button type="button" aria-expanded={isBasketOpen} aria-label="Open Basket" onClick={handleBasketClick} className=" cursor-pointer">
                   <Image src={basketIcon} alt="Logo" width={20} height={20} />
@@ -114,16 +93,24 @@ const HamburgerMenu = () => {
               <div>
                 <ul className={`${isOpen ? "flex flex-col z-11 text-HeaderSizeBig text-alternativ_white " : "flex gap-3"}`}>
                   <li className="hover:text-main_white hover:underline">
-                    <Link href="/">Home</Link>
+                    <Link onClick={() => setIsOpen(false)} href="/">
+                      Home
+                    </Link>
                   </li>
                   <li className="hover:text-main_white hover:underline">
-                    <Link href="/productPage">Shop</Link>
+                    <Link onClick={() => setIsOpen(false)} href="/productPage">
+                      Shop
+                    </Link>
                   </li>
                   <li className="hover:text-main_white hover:underline">
-                    <Link href="/communityPage">Community</Link>
+                    <Link onClick={() => setIsOpen(false)} href="/communityPage">
+                      Community
+                    </Link>
                   </li>
                   <li className="hover:text-main_white hover:underline">
-                    <Link href="/aboutPage">About</Link>
+                    <Link onClick={() => setIsOpen(false)} href="/aboutPage">
+                      About
+                    </Link>
                   </li>
                 </ul>
               </div>
