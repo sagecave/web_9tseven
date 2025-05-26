@@ -9,13 +9,21 @@ export default function SingleProductPage() {
   const params = useParams();
   const slug = params.slug;
   const [productsData, setProductData] = useState([]);
-  const { BasketSatete, update } = useBasketStore();
+  const [selectedSize, setSelectedSize] = useState(null);
+  const [chooseText, setChooseText] = useState(true);
+  const { update } = useBasketStore();
   const productQuantities = useStore((state) => state.productQuantities);
   const quantity = productQuantities[productsData[0]?.id] || 0;
   const increaseProductNumber = useStore((state) => state.increaseProductNumber);
   const increaseAllProductNumber = useStore((state) => state.increaseAllProductNumber);
+  const fabricDetails = [productsData[0]?.Fabric, productsData[0]?.Fabric2, productsData[0]?.Fabric3].filter(Boolean);
+  const sizes = ["S", "M", "L", "XL"];
 
-  const quantatityAndPriceCalculater = useStore((state) => state.quantatityAndPriceCalculater);
+  const handleSize = (size) => {
+    console.log(size, "Size selected");
+    setChooseText(true);
+    setSelectedSize(size);
+  };
 
   const HandleUpdateProducts = () => {
     const newProducts = [
@@ -30,14 +38,19 @@ export default function SingleProductPage() {
         quantity: quantity,
       },
     ];
-    if (quantity >= 1) {
-      increaseProductNumber(productsData[0]?.id);
-      increaseAllProductNumber();
+    if (!selectedSize) {
+      console.log("No size selected");
+      setChooseText(false);
     } else {
-      console.log("Product already in basket", quantity);
-      increaseProductNumber(productsData[0]?.id);
-      increaseAllProductNumber();
-      update(newProducts);
+      if (quantity >= 1) {
+        increaseProductNumber(productsData[0]?.id);
+        increaseAllProductNumber();
+      } else {
+        console.log("Product already in basket", quantity);
+        increaseProductNumber(productsData[0]?.id);
+        increaseAllProductNumber();
+        update(newProducts);
+      }
     }
   };
   useEffect(() => {
@@ -68,14 +81,14 @@ export default function SingleProductPage() {
   const images = [productsData[0]?.ModelProductImage, productsData[0]?.ModelProductImage2, productsData[0]?.ModelProductImage3, productsData[0]?.first_image, productsData[0]?.secound_image].filter(Boolean);
 
   return (
-    <section className="  grid col-start-2 col-end-3  mt-35 md:mt-25">
+    <section className="  grid col-start-2 col-end-3  mt-35 md:mt-25 ">
       <div className="hidden md:block pb-12 md:col-start-1 md:col-end-3">
         <h1 className=" text-HeaderSizeBig text-main_black">{productsData[0]?.title}</h1>
         <p className="text-ParagraphSize text-alternativ_black">bredcrum path</p>
       </div>
 
-      <div id="example" className="relative w-[100vw] max-w-[100vw] md:max-w-[500px] bottom-10">
-        <motion.ul className="flex overflow-x-scroll sm:gap-10 snap-x snap-mandatory ">
+      <div className="relative w-[100vw] max-w-[400px]  md:max-w-[500px] bottom-10">
+        <motion.ul className="flex overflow-x-scroll sm:gap-10 snap-x snap-mandatory gap-20 ">
           {images.map((image, index) => (
             <li key={index} className={` w-full min-w-full md:w-[500px] snap-x snap-mandatory snap-start`}>
               <img src={image} alt={`Product Image ${index + 1}`} width={500} height={500} className=" h-auto w-100 md:w-[30rem] object-cover max-w-none" />
@@ -84,15 +97,54 @@ export default function SingleProductPage() {
         </motion.ul>
       </div>
       <div className=" text-ParagraphSize text-main_black md:ml-6 md:w-[70%] md:relative md:top-[-45px]">
-        <h2 className=" text-HeaderSizeSmall text-main_black">{productsData[0]?.title}</h2>
-        <p>{productsData[0]?.price} kr</p>
-        <p>{productsData[0]?.description}</p>
-        <p>SIZES</p>
+        <div className="mt-4">
+          <h2 className=" text-HeaderSizeSmall text-main_black">{productsData[0]?.title}</h2>
+          <p>{productsData[0]?.price} kr</p>
+          <p>{productsData[0]?.description}</p>
+        </div>
 
-        <button className=" border-2 border-alternativ_black p-2 hover:bg-alternativ_black hover:text-main_white" onClick={HandleUpdateProducts}>
-          + ADD PRODUCT
-        </button>
-        <p>Acordien</p>
+        <div className="flex flex-row mt-8">
+          {sizes.map((size, index) => (
+            <button
+              id={index}
+              onClick={() => handleSize(size)}
+              key={index}
+              className={`w-10 p-2 border border-alternativ_black
+            ${selectedSize === size ? "bg-alternativ_black text-main_white" : "text-alternativ_black"}
+            hover:bg-alternativ_black hover:text-main_white`}
+            >
+              {size}
+            </button>
+          ))}
+        </div>
+        <div className="mt-4">
+          <button className=" text-main_black   hover:text-gray-500   " onClick={HandleUpdateProducts}>
+            + ADD PRODUCT
+          </button>
+          {!chooseText && <p className="text-red-500">You have to choose a size</p>}
+        </div>
+        <div className="mt-6">
+          {fabricDetails.length > 0 && <h2 className=" text-HeaderSizeSmall">Fabric</h2>}
+
+          {fabricDetails.map((fabric, index) => (
+            <div key={index} className="mt-2">
+              <p className="text-alternativ_black">{fabric}</p>
+            </div>
+          ))}
+
+          {/* <details>
+            <summary>Click to expand</summary>
+            <p>This is the hidden content that shows when open.</p>
+          </details>
+          <details>
+            <summary>t-shirt</summary>
+            <p>This is the hidden content that shows when open.</p>
+          </details>
+          <details>
+            <summary>LOL</summary>
+            <p>This is the hidden content that shows when open.</p>
+          </details> */}
+        </div>
       </div>
     </section>
   );

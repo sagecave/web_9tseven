@@ -28,17 +28,13 @@ button {
   cursor: pointer;
 }
 
-::-webkit-scrollbar {
-  height: 10px;
-  width: auto;
-
-  background-color: var(--color-neutral_white);
-}
-
-::-webkit-scrollbar-thumb {
+/* #scrollContainer::-webkit-scrollbar-thumb {
   background-color: var(--color-main_black);
 }
 
+#scrollContainer::-webkit-scrollbar-track {
+  background-color: var(--color-neutral_white);
+} */
 @theme inline {
   /* This white is mainly used to background colors, and for some text colors(headers), where the background and white */
   --color-main_white: #ffffff;
