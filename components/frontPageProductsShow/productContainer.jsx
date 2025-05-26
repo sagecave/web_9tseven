@@ -73,7 +73,7 @@ const ProductContainer = ({ header, paragraph, images, variant = "normalContaine
         <p className="md:w-[20rem] text-alternativ_black">{paragraph}</p>
       </div>
       <div className={imageGridClass}>
-        <Image className=" object-cover w-full lg:w-[500]   " src={`/assets/images/${images}.jpg`} alt="hero" width={500} height={500} />
+        <Image className=" object-cover w-full    " src={`/assets/images/${images}.jpg`} alt="hero" width={500} height={500} />
       </div>
     </section>
   );
