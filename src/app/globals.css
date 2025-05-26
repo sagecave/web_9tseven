@@ -50,7 +50,7 @@ button {
   /* This size is for headers below h1 */
   --text-HeaderSizeSmall: 1.25rem;
   /* This size is for paragraph, links and buttons */
-  --text-ParagraphSize: 1rem;
+  --text-ParagraphSize: 0.9rem;
 }
 
 @media (prefers-color-scheme: dark) {
