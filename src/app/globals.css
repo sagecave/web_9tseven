@@ -48,7 +48,7 @@ button {
   /* This size is for h1 headers */
   --text-HeaderSizeBig: 2rem;
   /* This size is for headers below h1 */
-  --text-HeaderSizeSmall: 1.25rem;
+  --text-HeaderSizeSmall: 1.1rem;
   /* This size is for paragraph, links and buttons */
   --text-ParagraphSize: 0.9rem;
 }
