@@ -76,10 +76,10 @@ With Social Run, everyone is invited — no matter your background, pace, or exp
         <Image src="/assets/images/frontPageThridPic.jpg" alt="hero" fill className="md:w-full h-full  overflow-hidden  object-cover " />
         <div className="absolute bottom-10 md:bottom-20 left-6 sm:left-15">
           <div className="mb-8 hidden sm:block">
-            <h2 className="mb-2">MANIFESTO</h2>
+            <h2 className="mb-2">COMMUNITY</h2>
             <p className="w-[20rem]">
-              Gratitude means noticing and appreciating the good things in life. It can boost your mood and help you feel more connected. With Social Run, it’s easier to feel grateful — whether it's for a shared smile, a team effort, or just showing
-              up together. Running with others brings small moments that mean a lot.
+              It’s feeling connected — through shared steps, small conversations, or simply being together. With Social Run, community grows naturally — in the high-fives, the group rhythm, or just knowing someone’s beside you. Running together turns
+              simple moments into something meaningful.
             </p>
           </div>
           <Link href="/communityPage" className=" border-main_white border-2 text-main_white p-3 text-ParagraphSize hover:bg-alternativ_black ">
@@ -101,12 +101,7 @@ With Social Run, you can show up just as you are. It's a space where you're met 
           />
         </ProductLayout>
       </section>
-      <section className="h-[70vh] md:h-[100vh] col-start-1 col-end-4 grid overflow-hidden  relative">
-        <Image src="/assets/images/frontPageFourPic.jpg" alt="hero" fill className="md:w-full h-full  overflow-hidden  object-cover " />
-        <Link href="/productPage" className="absolute bottom-10 left-6 sm:left-15 bg-main_black  text-main_white p-3 text-ParagraphSize hover:bg-alternativ_black">
-          SHOP PERFROMANCE
-        </Link>
-      </section>
+
       <section className="col-start-1 col-end-4 grid sm:mb-30">
         <div className="grid col-start-2 col-end-3 mt-30 mb-4 p-4 md:p-0">
           <div className="*:text-HeaderSizeSmall *:text-main_black *:font-bold mb-2 sm:mb-6 ">
