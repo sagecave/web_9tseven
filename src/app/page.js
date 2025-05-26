@@ -3,13 +3,39 @@ import Image from "next/image";
 import Link from "next/link";
 import ProductContainer from "../../components/frontPageProductsShow/productContainer";
 import ProductLayout from "../../layouts/ProductLayout";
+import highlightFirst from "../../public/assets/images/highlightFirst2.jpg";
+import highlighSecound from "../../public/assets/images/highlighSecound.jpg";
+import highlightThrid from "../../public/assets/images/highlightThrid.jpg";
 export default function Home() {
+  const highlights = [
+    {
+      id: 1,
+      image: highlightFirst,
+      title: "PROGRAM",
+      date: "2023-10-01",
+      description: "The 9Tseven program is a reflection of constant movement — a space where monthly events and collaborations spark connection. A shared experience that brings us together.",
+    },
+    {
+      id: 2,
+      image: highlighSecound,
+      title: "9TSEVEN X NEW BALANCE",
+      date: "2023-10-15",
+      description: "A collaboration rooted in purpose. Together, we celebrate movement, community, and a shared vision for mindful progress.",
+    },
+    {
+      id: 3,
+      image: highlightThrid,
+      title: "MANIFESTO",
+      date: "2023-11-05",
+      description: "Our manifesto is a mindset—built on gratitude, growth, and connection. It guides how we move, live, and uplift each other.",
+    },
+  ];
   return (
     <>
       <section className=" h-[50vh] md:h-[100vh] col-start-1 col-end-4 grid overflow-hidden  relative">
         <Image src="/assets/images/frontPageFirstPic.jpg" alt="hero" fill className="md:w-full h-full  overflow-hidden  object-cover " />
       </section>
-      <section className="grid md:col-start-2 md:col-end-3 col-start-1 col-end-4 md:mt-15">
+      <section className="grid md:col-start-2 md:col-end-3 col-start-1 col-end-4 md:mt-30 md:mb-15">
         <ProductLayout>
           <ProductContainer
             slice1="2"
@@ -31,7 +57,7 @@ export default function Home() {
           </Link>
         </div>
       </section>
-      <section className="grid lg:col-start-2 lg:col-end-3 col-start-1 col-end-4 mt-15">
+      <section className="grid lg:col-start-2 lg:col-end-3 col-start-1 col-end-4 md:mt-30 md:mb-15">
         <ProductLayout>
           <ProductContainer
             slice1="4"
@@ -61,7 +87,7 @@ With Social Run, everyone is invited — no matter your background, pace, or exp
           </Link>
         </div>
       </section>
-      <section className="grid lg:col-start-2 lg:col-end-3 col-start-1 col-end-4 mt-15">
+      <section className="grid lg:col-start-2 lg:col-end-3 col-start-1 col-end-4 md:mt-30 md:mb-15">
         <ProductLayout>
           <ProductContainer
             slice1="8"
@@ -80,6 +106,24 @@ With Social Run, you can show up just as you are. It's a space where you're met 
         <Link href="/productPage" className="absolute bottom-10 left-6 sm:left-15 bg-main_black  text-main_white p-3 text-ParagraphSize hover:bg-alternativ_black">
           SHOP PERFROMANCE
         </Link>
+      </section>
+      <section className="col-start-1 col-end-4 grid sm:mb-30">
+        <div className="grid col-start-2 col-end-3 mt-30 mb-4 p-4 md:p-0">
+          <div className="*:text-HeaderSizeSmall *:text-main_black *:font-bold mb-2 sm:mb-6 ">
+            <h2>HIGHLIGHTS</h2>
+          </div>
+          <div className="flex flex-row max-w-[100vw] overflow-x-scroll snap-x snap-mandatory ">
+            {highlights.map((highlight) => (
+              <div className="w-fit pr-4 snap-start" key={highlight.id}>
+                <Image className="object-cover mb-4" src={highlight.image} alt={highlight.title} width={400} height={200} />
+                <div className="w-90">
+                  <h2 className=" text-HeaderSizeSmall text-main_black">{highlight.title}</h2>
+                  <p className=" text-ParagraphSize text-alternativ_black">{highlight.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
     </>
   );
