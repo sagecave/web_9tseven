@@ -12,8 +12,10 @@ const BasketModal = ({ isBasketOpen, setBasketOpen }) => {
   const productQuantities = useStore((state) => state.productQuantities);
   const getValueOfProducts = useStore((state) => state.getValueOfProducts);
   const [totalAmount, setTotalAmount] = useState(0);
+
   const totalPrices = BasketSatete.reduce((acc, product) => {
     const quantity = productQuantities[product.id] || 0;
+
     return acc + product.price * quantity;
   }, 0);
   const handleRouterPayment = () => {
@@ -50,11 +52,11 @@ const BasketModal = ({ isBasketOpen, setBasketOpen }) => {
             exit={{ x: 300, opacity: 0 }}
             transition={{ ease: "easeOut", duration: 1.5 }}
           >
-            <h2 className="text-main_white">Your items</h2>
+            <h2 className={totalPrices === 0 ? " text-center text-alternativ_white flex justify-center text " : "text-main_white"}>{totalPrices ? "Your items" : "Add a item to the chart"}</h2>
             <div className="snap-y snap-mandatory overflow-y-scroll h-full ">
               <div>{BasketSatete.map((product) => (console.log("product", product), (<BasketProductCard key={product.id} id={product.id} title={product.title} productImages={product.first_image} item={product.item} price={product.price} />)))}</div>
             </div>
-            <div>
+            <div className={totalPrices === 0 ? "hidden" : "block"}>
               <div className="flex flex-row justify-between items-center">
                 <p className="text-main_white">Total</p>
                 <p className="text-main_white">{totalPrices},-</p>
