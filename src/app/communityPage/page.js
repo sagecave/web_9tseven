@@ -60,8 +60,8 @@ const communityPage = () => {
             </p>
           </div>
 
-          <div className="grid col-start-1 col-end-4 md:col-start-2 md:col-end-3 md:row-start-1 md:row-end-3 md:mt-13 md:ml-5 relative ">
-            <Image className="object-cover w-full md:w-full" src="/assets/images/chillingSammy.webp" alt="Person sitting down" width={500} height={300} />
+          <div className="grid col-start-1 col-end-4 md:col-start-2 md:col-end-3 md:row-start-1 md:row-end-3 md:mt-13 md:ml-5 relative  ">
+            <Image className="object-cover w-full md:w-full max-h-[870px]" src="/assets/images/chillingSammy.webp" alt="Person sitting down" width={500} height={300} />
             {/* <div className="absolute left-0 right-0 bottom-0   ">
               <h2 className="text-main_white text-HeaderSizeSmall mt-2">A GUIDANCE OF LIVING</h2>
               <ul className="*:text-neutral_white *:text-ParagraphSize *:pt-4">
@@ -100,7 +100,7 @@ const communityPage = () => {
           </div>
 
           <div className="grid col-start-1 col-end-4 md:col-start-1 md:col-end-2 md:row-start-2 md:row-end-3 lg:bottom-15 md:mt-15 md:mr-5 md:relative sm:mb-5">
-            <Image className="object-cover w-full md:w-full md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2" src="/assets/images/communityPictureGroup.webp" alt="Person standing" width={500} height={300} />
+            <Image className="object-cover w-full md:w-full md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2 max-h-[800px]" src="/assets/images/communityPictureGroup.webp" alt="Person standing" width={500} height={300} />
           </div>
         </div>
       </div>
