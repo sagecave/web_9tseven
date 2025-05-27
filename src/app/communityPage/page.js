@@ -61,7 +61,7 @@ const communityPage = () => {
           </div>
 
           <div className="grid col-start-1 col-end-4 md:col-start-2 md:col-end-3 md:row-start-1 md:row-end-2 md:mt-4 md:ml-5">
-            <Image className="object-cover w-full md:w-full" src="/assets/images/comunityRelax.jpg" alt="Person sitting down" width={500} height={300} />
+            <Image className="object-cover w-full md:w-full" src="/assets/images/chillingSammy.webp" alt="Person sitting down" width={500} height={300} />
           </div>
 
           <div className=" col-start-2 col-end-3 mt-4 mb-4 md:col-start-2 md:col-end-3 md:mt-20 md:ml-5 ">
@@ -101,7 +101,7 @@ const communityPage = () => {
           </div>
 
           <div className="grid col-start-1 col-end-4 md:col-start-1 md:col-end-2 md:row-start-2 md:row-end-3 lg:bottom-15 md:mr-5 md:relative">
-            <Image className="object-cover w-full md:w-full md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2" src="/assets/images/communityStand.jpg" alt="Person standing" width={500} height={300} />
+            <Image className="object-cover w-full md:w-full md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2" src="/assets/images/standingSammy.webp" alt="Person standing" width={500} height={300} />
           </div>
         </div>
       </div>
