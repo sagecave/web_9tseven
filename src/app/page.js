@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <>
       <section className=" h-[50vh] md:h-[99vh] col-start-1 col-end-4 grid overflow-hidden  relative">
-        <Image src="/assets/images/heroSectionSammy.webp" alt="hero" fill className="md:w-full h-full  overflow-hidden  object-cover " />
+        <Image src="/assets/images/Better2.webp" alt="hero" fill className="md:w-full h-full  overflow-hidden  object-cover " />
       </section>
       <section className="grid md:col-start-2 md:col-end-3 col-start-1 col-end-4 md:mt-30 md:mb-15">
         <ProductLayout>
