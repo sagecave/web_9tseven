@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "9TSEVEN find freedom and happiness",
+  title: "9TSEVEN",
   description: "A clothing brand that helps you find freedom and happiness through a community of like-minded people — and by encouraging personal growth through running.",
 };
 
