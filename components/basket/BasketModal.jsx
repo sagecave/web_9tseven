@@ -59,7 +59,7 @@ const BasketModal = ({ isBasketOpen, setBasketOpen }) => {
             <div className={totalPrices === 0 ? "hidden" : "block"}>
               <div className="flex flex-row justify-between items-center">
                 <p className="text-main_white">Total</p>
-                <p className="text-main_white">{totalPrices},-</p>
+                <p className="text-main_white">{totalPrices} kr</p>
               </div>
               <button onClick={() => handleAmountSendtToStripe()} className="  p-4 w-full bg-main_white hover:bg-alternativ_black hover:text-main_white text-main_black">
                 checkout
