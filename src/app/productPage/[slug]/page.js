@@ -84,7 +84,6 @@ export default function SingleProductPage() {
     <section className="  grid col-start-2 col-end-3  mt-35 md:mt-25 ">
       <div className="hidden md:block pb-12 md:col-start-1 md:col-end-3">
         <h1 className=" text-HeaderSizeBig text-main_black">{productsData[0]?.title}</h1>
-        <p className="text-ParagraphSize text-alternativ_black">bredcrum path</p>
       </div>
 
       <div className="relative w-[100vw] max-w-[400px]  md:max-w-[500px] bottom-10">
