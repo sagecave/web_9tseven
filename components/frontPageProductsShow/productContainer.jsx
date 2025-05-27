@@ -27,28 +27,31 @@ const ProductContainer = ({ header, paragraph, images, variant = "normalContaine
   let imageGridClass = "";
   let imagesContainer = "";
   let textConatiner = "";
+  let sectionStyle = "";
 
   switch (variant) {
     case "normalContainer":
       //   imagesContainer = "grid grid-cols-2 gap-4 lg:pr-4";
 
       //   textConatiner = "lg:col-start-1 lg:row-start-3 lg:col-end-3";
-      imagesContainer = "grid grid-cols-2 gap-4 lg:pr-4 ";
-      textConatiner = "lg:col-start-1 lg:row-start-3 lg:col-end-3 p-6 lg:p-0 ";
-      imageGridClass = "lg:col-start-3 row-start-1 lg:row-end-4 row-span-1 hidden  lg:block";
-      productsContainer = "lg:col-start-1 lg:row-start-1 lg:col-end-3 lg:row-end-3 grid p-6 lg:p-0 ";
+      imagesContainer = "grid col-start-1 col-end-2 gap-4  ";
+      textConatiner = "lg:col-start-1 lg:row-start-3 lg:col-end-2 p-6 lg:p-0 ";
+      imageGridClass = "lg:col-start-2 row-start-1 lg:row-end-4 row-span-1 hidden  lg:block";
+      productsContainer = "lg:col-start-1 lg:row-start-1 lg:col-end-2 lg:row-end-3 grid p-6 lg:p-0 ";
+      sectionStyle = "lg:grid lg:grid-rows-3 lg:grid-cols-[3fr_4fr] lg:h-[100vh]";
 
       break;
     case "reverseContainer":
-      imagesContainer = "grid grid-cols-2 gap-4 lg:pr-4";
-      productsContainer = "lg:col-start-2 lg:row-start-1 lg:col-end-4 lg:row-end-3 grid lg:pl-4 p-6 lg:p-0";
-      textConatiner = "lg:col-start-2 lg:row-start-3 lg:col-end-3 lg:pl-4 p-6 lg:p-0";
-      imageGridClass = "lg:col-start-1 lg:col-end-2 row-start-1 lg:row-start-1 lg:row-end-4 row-span-1 hidden lg:block";
+      imagesContainer = "grid col-start-1 col-end-2 gap-4";
+      textConatiner = "lg:col-start-2 lg:row-start-3 lg:col-end-3 p-6 lg:p-0";
+      imageGridClass = "lg:col-start-1 row-start-1 lg:row-end-4 row-span-1 hidden lg:block";
+      productsContainer = "lg:col-start-2 lg:row-start-1 lg:col-end-3 lg:row-end-3 grid p-6 lg:p-0";
+      sectionStyle = "lg:grid lg:grid-rows-3 lg:grid-cols-[4fr_3fr] lg:h-[100vh]";
 
       break;
   }
   return (
-    <section className="grid lg:grid-rows-3 lg:h-[100vh]  ">
+    <section className={sectionStyle}>
       <div className={productsContainer}>
         <div>
           <Link href="/productPage" className=" text-main_black lg:w-[50%] text-ParagraphSize hover:text-alternativ_black p-6 lg:p-3">
@@ -58,13 +61,15 @@ const ProductContainer = ({ header, paragraph, images, variant = "normalContaine
             </div>
           </Link>
           <div className={imagesContainer}>
-            {productData
+            <div className="flex flex-row gap-4">
+              {productData
 
-              .slice(slice1, slice2)
-              .concat(productData.slice(slice3, slice4))
-              .map((item) => (
-                <ProductCard key={item.id} productImage={item.first_image} title={item.title} category={item.category} price={item.price} slugName={item.slug_name} />
-              ))}
+                .slice(slice1, slice2)
+                .concat(productData.slice(slice3, slice4))
+                .map((item) => (
+                  <ProductCard key={item.id} productImage={item.first_image} title={item.title} category={item.category} price={item.price} slugName={item.slug_name} />
+                ))}
+            </div>
           </div>
         </div>
       </div>
@@ -73,7 +78,7 @@ const ProductContainer = ({ header, paragraph, images, variant = "normalContaine
         <p className="md:w-[20rem] text-alternativ_black">{paragraph}</p>
       </div>
       <div className={imageGridClass}>
-        <Image className=" object-cover w-full    " src={`/assets/images/${images}.jpg`} alt="hero" width={500} height={500} />
+        <Image className=" object-contain w-[100%] h-[100%]   " src={`/assets/images/${images}.jpg`} alt="hero" width={500} height={500} />
       </div>
     </section>
   );
