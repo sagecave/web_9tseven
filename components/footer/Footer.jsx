@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="flex justify-center mb-5 md:hidden">
         <Image src="/assets/images/logoWhite.png" alt="Logo" width={50} height={50} />
       </div>
-      <div className="flex  flex-col-reverse sm:flex-row md:justify-between p-4">
+      <div className="flex flex-col gap-4 sm:flex-row md:justify-around ">
         <div className="flex flex-col gap-5 mt-5 sm:mt-0">
           <h2 className=" text-HeaderSizeSmall">JOIN THE 9TSEVEN NEWSLETTER</h2>
           <form>
@@ -25,7 +25,7 @@ const Footer = () => {
         <div className="flex flex-row gap-5">
           <div>
             <h2>SOCIALS</h2>
-            <ul>
+            <ul className=" *:text-alternativ_white">
               <li className="hover:text-alternativ_white hover:underline">
                 <Link href={"/"}>INSTAGRAM</Link>
               </li>
@@ -45,7 +45,7 @@ const Footer = () => {
           </div>
           <div>
             <h2>COMPANY</h2>
-            <ul>
+            <ul className=" *:text-alternativ_white">
               <li className="hover:text-alternativ_white hover:underline">
                 <Link href={"/"}>CONTACT</Link>
               </li>
