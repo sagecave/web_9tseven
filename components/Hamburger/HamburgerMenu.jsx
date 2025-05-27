@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import basketIcon from "../../public/assets/icons/basket.svg";
 
@@ -20,9 +20,30 @@ const HamburgerMenu = () => {
     setBasketOpen(!isBasketOpen);
     console.log("Basket clicked", isBasketOpen);
   };
+
+  const [showNav, setShowNav] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY < 50) {
+        setShowNav(true);
+        setLastScrollY(window.scrollY);
+        return;
+      }
+      if (window.scrollY > lastScrollY) {
+        setShowNav(false); // scrolling down
+      } else {
+        setShowNav(true); // scrolling up
+      }
+      setLastScrollY(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
   return (
     <>
-      <div className="flex justify-between fixed w-full p-8 z-20 md:hidden">
+      <div className={`transition-transform duration-300 ${showNav ? "translate-y-0" : "-translate-y-full"} flex justify-between fixed w-full p-8 z-20 md:hidden`}>
         <button type="button" aria-expanded={isOpen} aria-label="Open Menu" onClick={handleMenuClick} className=" cursor-pointer">
           <div className="flex flex-col gap-1">
             <span className=" w-6 h-0.5 bg-main_white"></span>
@@ -49,7 +70,7 @@ const HamburgerMenu = () => {
           </ul>
         )}
       </div>
-      <nav className="w-full p-10 md:pt-6 md:pb-6 md:pl-14 md:pr-14 bg-main_black fixed top-0 left-0 z-10">
+      <nav className={`transition-transform duration-300 ${showNav ? "translate-y-0" : "-translate-y-full"} w-full p-10 md:pt-6 md:pb-6 md:pl-14 md:pr-14 bg-main_black fixed top-0 left-0 z-10`}>
         <div className={"hidden  md:flex md:justify-between items-center"}>
           <div>
             <ul className="flex gap-3 w-10 ">
